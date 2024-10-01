@@ -1,0 +1,244 @@
+
+\section{Rules of probability}
+
+\subsection{Probability density function}
+
+The probability density function (pdf) of a random variable $X$ is a function $f(x)$ that describes the likelihood of observing a value $x$ of $X$.
+
+\begin{align}
+    f(x) = P(X=x), \quad 
+    \text{where } x \in \text{set of possible values of } X.
+\end{align}
+
+It does not make sense to talk about the pdf at a specific value for a continuous random variable (as this will always be zero). Instead, we talk about the probability of observing a value in an interval.
+
+\subsection{Cumulative density function}
+
+The cumulative density function (cdf) of a random variable $X$ is a function $F(x)$ that describes the probability of observing a value less than or equal to $x$.
+
+\begin{equation}
+    F(x) = P(X \leq x)  
+    \quad \text{where } x \in \text{set of possible values of } X.
+\end{equation}
+
+\subsection{Link between CDF and PDF}
+
+The pdf and cdf are linked by the following equation
+
+\begin{equation}
+    p(a \leq X \leq b) = F(b) - F(a),
+\end{equation}
+
+where $b > a$. 
+
+\subsection{Complement rule}
+
+The probability of an event not happening is one minus the probability of the event happening. 
+
+\begin{equation}
+    p(\bar{A}) = 1 - p(A)
+\end{equation}
+
+This can be used in the following way:
+
+\begin{equation}
+    p(X > x) = 1 - p(X \leq x) = 1 - F(x)
+\end{equation}
+    
+\section{Rules of random variables}
+
+\subsection{Mean rule}
+
+Let $X$ be a random variable and $a$ and $b$ be constants $\in \R$ then
+
+\begin{equation}
+    \E(aX + b) = a\E(X) + b.
+\end{equation}
+
+\subsection{Variance rule}
+
+Let $X$ be a random variable and $a$ and $b$ be constants $\in \R$ then
+
+\begin{equation}
+    \text{Var}(aX + b) = a^2 \text{Var}(X).
+\end{equation}
+
+\subsection{Mean of linear combinations}
+
+Let $X_1, ... , X_n$ be \textcolor{red}{independent} random variables then
+
+\begin{equation}
+    \E(aX_1 + bX_2 + ... + cX_n) = a\E(X_1) + b\E(X_2) + ... + c\E(X_n).
+\end{equation}
+
+\subsection{Variance of linear combinations}
+
+Let $X_1, ... , X_n$ be \textcolor{red}{independent} random variables then
+
+\begin{equation}
+    \text{Var}(aX_1 + bX_2 + ... + cX_n) = a^2\text{Var}(X_1) + b^2\text{Var}(X_2) + ... + c^2\text{Var}(X_n).
+\end{equation}
+
+\section{Discrete distributions}
+
+
+\subsection{Binomial distribution}
+
+Let the random variable $X$ be the number of successes in independent $n$ draws with replacement. Then $X$ follows the binomial distribution
+
+\begin{equation}
+X \sim B(n,p),
+\end{equation}
+
+where $n$ is the number of draws and $p$ is the probability of success in each trial. The binomial pdf describes the probability of obtaining $x$ successes in $n$ draws
+
+\begin{equation}
+f(x;n,p) = P(X=x) = \binom{n}{x} p^x (1-p)^{n-x},
+\end{equation}
+
+where,
+
+\begin{equation}
+\binom{n}{x} = \frac{n!}{x!(n-x)!},
+\end{equation}
+
+is the number of distinct sets of $x$ elements which can be chosen from a set of $n$ elements. Remember that $n! = n \cdot (n-1) \cdot (n-2) \cdot ... \cdot 2 \cdot 1$.
+
+The mean of a binomial distributed random variable is
+
+\begin{equation}
+\mu = np,
+\end{equation}
+and the variance is,
+\begin{equation}
+\sigma^2 = np(1-p).
+\end{equation}
+
+
+\begin{highlight}
+    The binomial distribution has the following assumptions:
+\begin{itemize}
+    \item The draws are independent.
+    \item Each draw is made with replacement. That is, the probability of success does not change from draw to draw.
+    \item If the set from where the "draws" are taken is approximately infinite, the binomial distribution can be used without replacement. 
+\end{itemize}
+\end{highlight}
+
+
+\subsection{Hypergeometric distribution}
+
+Let the random variable $X$ be the number of successes in $n$ draws without replacement. Then $X$ follows the hypergeometric distribution
+
+\begin{equation}
+X \sim H(n, a, N),
+\end{equation}
+
+where $a$ is the number of successes in the population and $N$ is the population size. The hypergeometric pdf describes the probability of obtaining $x$ successes in $n$ draws
+
+\begin{equation}
+f(x;n,a,N) = P(X=x) = \frac{\binom{a}{x} \binom{N-a}{n-x}}{\binom{N}{n}},
+\end{equation}
+
+where,
+
+\begin{equation}
+\binom{a}{b} = \frac{a!}{b!(a-b)!},
+\end{equation}
+
+is the number of distinct sets of $b$ elements which can be chosen from a set of $a$ elements. 
+
+The mean of a hypergeometric distributed random variable is
+
+\begin{equation}
+\mu = \frac{na}{N},
+\end{equation}
+
+and the variance is,
+
+\begin{equation}
+\sigma^2 = n\frac{a(N-a)}{N^2} \cdot \frac{N-n}{N-1}
+\end{equation}
+
+\subsection{Poisson distribution}
+
+Let the random variable $X$ be the number of events in a given interval (time, space or other). Then $X$ follows the Poisson distribution
+
+\begin{equation}
+X \sim Po(\lambda),
+\end{equation}
+
+where $\lambda$ is the average number of events in the interval (called rate or intensity). The Poisson pdf describes the probability of observing $x$ events in an interval
+
+\begin{equation}
+f(x;\lambda) = P(X=x) = \frac{\lambda^x}{x!} e^{-\lambda},
+\end{equation}
+
+The mean of a Poisson distributed random variable is
+\begin{equation}
+\mu = \lambda,
+\end{equation}
+and the variance is,
+\begin{equation}
+\sigma^2 = \lambda.
+\end{equation}
+
+\subsubsection{Rate scaling of Poisson distribution}
+
+The Poisson distribution is often used to model the number of events in a given interval. If the interval is scaled by a factor $c$, the rate of events will also scale by $c$. This means that if $X \sim Po(\lambda)$, then $cX \sim Po(c\lambda)$.
+
+\begin{example}{Rate scaling}{rate_scaling}
+If a 10 mL sample has 5 bacteria on average,
+\begin{equation*}
+X \sim Po(\lambda = 5),
+\end{equation*}
+
+Then we can find the rate for a 20 mL sample by scaling the rate by the factor $c = 2$,
+
+\begin{equation*}
+cX \sim Po(c\lambda) = Po(2 \cdot 5) = Po(10).
+\end{equation*}
+\end{example}
+
+\section{Color codes for highlighting}
+Apricot
+Aquamarine
+Bittersweet
+BlueGreen
+BrickRed
+BurntOrange
+CarnationPink
+Cerulean
+CornflowerBlue
+Dandelion
+Emerald
+ForestGreen
+Fuchsia
+Goldenrod
+Lavender
+LimeGreen
+Magenta
+Melon
+MidnightBlue
+Mulberry
+NavyBlue
+OliveGreen
+Orange
+Orchid
+Peach
+Periwinkle
+PineGreen
+Plum
+RawSienna
+RedOrange
+RoyalBlue
+RubineRed
+SeaGreen
+SkyBlue
+SpringGreen
+Tan
+TealBlue
+Thistle
+Turquoise
+Violet
+WildStrawberry
+YellowGreen
