@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1727779170.5574 "main.bcf" "main.bbl" "main" 1727779189.89674 0
-  "main.bcf" 1727779189 110306 68cf99745ed13de80b67fde89498cf1c "pdflatex"
+["biber main"] 1727780223.7232 "main.bcf" "main.bbl" "main" 1727780243.00031 0
+  "main.bcf" 1727780242 110306 68cf99745ed13de80b67fde89498cf1c "pdflatex"
   "references.bib" 1727774924 3255 8cafc38976685162d3c59d0efdfa3a42 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1727779184.88894 "c:/Users/lucas/iCloudDrive/Desktop/Folders/Coding/TempLocal/MFFBnotes/Microbiology Notes/main.tex" "main.pdf" "main" 1727779189.89814 0
+["pdflatex"] 1727780237.60747 "c:/Users/lucas/iCloudDrive/Desktop/Folders/Coding/TempLocal/MFFBnotes/Microbiology Notes/main.tex" "main.pdf" "main" 1727780243.00149 0
   "Figures/Bridge1.png" 1726487659 90413 2aa88f4ab134ae9f198aba9980eff8b2 ""
   "Figures/Bridge2.png" 1726487659 210359 cbd4e11408ed2fe144fba0d6d572e72d ""
   "Figures/Exc2DNA.png" 1726124264 8142 990fcc2410b02b6f1edebb566d267fef ""
@@ -23,7 +23,7 @@
   "TexFiles/chapter2.tex" 1727178504 31944 e33a70b8c2c4371f7762eaf486e5eeb0 ""
   "TexFiles/chapter3.tex" 1725879944 31 6af55e10641955a58de2b1bc83faa40c ""
   "TexFiles/chapter4.tex" 1726518551 16379 ea7ff17472291b5a6a557cbd777e301e ""
-  "TexFiles/chapter5.tex" 1727778937 14402 5495255bdc010b59c12b88091356327a ""
+  "TexFiles/chapter5.tex" 1727780234 14407 c96c978c600e44df8d66bdd35cc6454d ""
   "TexFiles/frontpage.tex" 1725879944 685 4134baf011e31fd092191a64fb8a4c82 ""
   "c:/Users/lucas/iCloudDrive/Desktop/Folders/Coding/TempLocal/MFFBnotes/Microbiology Notes/main.tex" 1727772431 900 7e5afabe7dd68730a19aa6b582fc099a ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1725481757 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -295,12 +295,12 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1725486235 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1725486511 8239381 ef9a94c925cc98b25efb040a05990681 ""
   "c:/texlive/2024/texmf.cnf" 1725486208 713 614551405fc44b98efbf516466e3c909 ""
-  "main.aux" 1727779189 17298 745aa4d34fef1cf17e50dd445d74a08b "pdflatex"
-  "main.bbl" 1727779173 5806 12ab5e5ab308062772a229b5889ff0ab "biber main"
-  "main.out" 1727779189 16342 fb8d5a474c42371b25169836aba9ae68 "pdflatex"
-  "main.run.xml" 1727779189 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
+  "main.aux" 1727780242 17298 745aa4d34fef1cf17e50dd445d74a08b "pdflatex"
+  "main.bbl" 1727780226 5806 12ab5e5ab308062772a229b5889ff0ab "biber main"
+  "main.out" 1727780242 16342 fb8d5a474c42371b25169836aba9ae68 "pdflatex"
+  "main.run.xml" 1727780242 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
   "main.tex" 1727772431 900 7e5afabe7dd68730a19aa6b582fc099a ""
-  "main.toc" 1727779189 6738 2806baa0f63ac671932fc43c894269f8 "pdflatex"
+  "main.toc" 1727780242 6738 2806baa0f63ac671932fc43c894269f8 "pdflatex"
   "preamble.tex" 1726522731 10597 c83f4bc6617a698992ee5f6b1547bf29 ""
   (generated)
   "main.aux"
