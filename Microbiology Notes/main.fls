@@ -301,6 +301,10 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/multicol.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/multicol.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/sauerj/parcolumns.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/sauerj/parcolumns.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/sauerj/processkv.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/sauerj/processkv.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty

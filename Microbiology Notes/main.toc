@@ -62,4 +62,4 @@
 \contentsline {section}{\numberline {5.1}1. Lecture}{25}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Article 1 - Fermented Foods as Experimentally Tractable Microbial Ecosystems}{25}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2}Article 2 - Review: Diversity of Microorganisms in global fermented foods and beverages}{28}{subsection.5.1.2}%
-\contentsline {chapter}{\numberline {A}Appendix}{31}{appendix.a.A}%
+\contentsline {chapter}{\numberline {A}Appendix}{32}{appendix.a.A}%
