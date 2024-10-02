@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.4)  2 OCT 2024 18:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.4)  2 OCT 2024 19:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1386,7 +1386,7 @@ LaTeX Font Info:    Font shape `T1/NimbusSans/m/n' will be
 (Font)              scaled to size 10.0pt on input line 1.
 [2]
 Chapter 2.
-<Figures/MicroscopeComponents.png, id=362, 625.33624pt x 385.44pt>
+<Figures/MicroscopeComponents.png, id=367, 625.33624pt x 385.44pt>
 File: Figures/MicroscopeComponents.png Graphic file (type png)
 <use Figures/MicroscopeComponents.png>
 Package pdftex.def Info: Figures/MicroscopeComponents.png  used on input line 10.
@@ -1402,7 +1402,7 @@ Package pdftex.def Info: Figures/MicroscopeComponents.png  used on input line 10
 [5]
 
 [6]
-<Figures/StressTolerantYeast.png, id=384, 823.075pt x 489.83pt>
+<Figures/StressTolerantYeast.png, id=389, 823.075pt x 489.83pt>
 File: Figures/StressTolerantYeast.png Graphic file (type png)
 <use Figures/StressTolerantYeast.png>
 Package pdftex.def Info: Figures/StressTolerantYeast.png  used on input line 186.
@@ -1410,7 +1410,7 @@ Package pdftex.def Info: Figures/StressTolerantYeast.png  used on input line 186
 
 
 [7 <./Figures/StressTolerantYeast.png>]
-<Figures/Macromorph.JPG, id=392, 557.08125pt x 688.07062pt>
+<Figures/Macromorph.JPG, id=397, 557.08125pt x 688.07062pt>
 File: Figures/Macromorph.JPG Graphic file (type jpg)
 <use Figures/Macromorph.JPG>
 Package pdftex.def Info: Figures/Macromorph.JPG  used on input line 222.
@@ -1422,7 +1422,7 @@ Package pdftex.def Info: Figures/Macromorph.JPG  used on input line 222.
 [9]
 
 [10]
-<Figures/TaxonomyDiff.png, id=407, 791.95876pt x 442.65375pt>
+<Figures/TaxonomyDiff.png, id=412, 791.95876pt x 442.65375pt>
 File: Figures/TaxonomyDiff.png Graphic file (type png)
 <use Figures/TaxonomyDiff.png>
 Package pdftex.def Info: Figures/TaxonomyDiff.png  used on input line 410.
@@ -1501,7 +1501,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `superscript' on input line 583.
 
-<Figures/SangerExample.png, id=431, 994.71625pt x 786.94pt>
+<Figures/SangerExample.png, id=436, 994.71625pt x 786.94pt>
 File: Figures/SangerExample.png Graphic file (type png)
 <use Figures/SangerExample.png>
 Package pdftex.def Info: Figures/SangerExample.png  used on input line 597.
@@ -1518,12 +1518,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.71342pt}.
 
 [15 <./Figures/SangerExample.png>]
-<Figures/Bridge1.png, id=440, 488.82625pt x 568.1225pt>
+<Figures/Bridge1.png, id=445, 488.82625pt x 568.1225pt>
 File: Figures/Bridge1.png Graphic file (type png)
 <use Figures/Bridge1.png>
 Package pdftex.def Info: Figures/Bridge1.png  used on input line 621.
 (pdftex.def)             Requested size: 169.29684pt x 196.75665pt.
-<Figures/Bridge2.png, id=441, 988.69376pt x 809.0225pt>
+<Figures/Bridge2.png, id=446, 988.69376pt x 809.0225pt>
 File: Figures/Bridge2.png Graphic file (type png)
 <use Figures/Bridge2.png>
 Package pdftex.def Info: Figures/Bridge2.png  used on input line 626.
@@ -1558,7 +1558,7 @@ Chapter 3.
 
 ]
 Chapter 4.
-<Figures/Exercise1Seq.png, id=455, 1256.695pt x 64.24pt>
+<Figures/Exercise1Seq.png, id=460, 1256.695pt x 64.24pt>
 File: Figures/Exercise1Seq.png Graphic file (type png)
 <use Figures/Exercise1Seq.png>
 Package pdftex.def Info: Figures/Exercise1Seq.png  used on input line 8.
@@ -1568,7 +1568,7 @@ Package pdftex.def Info: Figures/Exercise1Seq.png  used on input line 8.
 [18
 
  <./Figures/Exercise1Seq.png>]
-<Figures/Exc2DNA.png, id=462, 913.16156pt x 72.27pt>
+<Figures/Exc2DNA.png, id=467, 913.16156pt x 72.27pt>
 File: Figures/Exc2DNA.png Graphic file (type png)
 <use Figures/Exc2DNA.png>
 Package pdftex.def Info: Figures/Exc2DNA.png  used on input line 77.
@@ -1583,7 +1583,7 @@ Overfull \hbox (5.45857pt too wide) in paragraph at lines 108--109
 
 
 [20]
-<Figures/Exc2Gel.JPG, id=476, 393.72093pt x 265.74281pt>
+<Figures/Exc2Gel.JPG, id=481, 393.72093pt x 265.74281pt>
 File: Figures/Exc2Gel.JPG Graphic file (type jpg)
 <use Figures/Exc2Gel.JPG>
 Package pdftex.def Info: Figures/Exc2Gel.JPG  used on input line 131.
@@ -1616,7 +1616,7 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 
 
 [23]
-<Figures/Exc4sub6.png, id=494, 319.94531pt x 408.02437pt>
+<Figures/Exc4sub6.png, id=499, 319.94531pt x 408.02437pt>
 File: Figures/Exc4sub6.png Graphic file (type png)
 <use Figures/Exc4sub6.png>
 Package pdftex.def Info: Figures/Exc4sub6.png  used on input line 284.
@@ -1690,24 +1690,24 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-16>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FB8D5A474C42371B25169836ABA9AE68;16342.
+(rerunfilecheck)             Checksum: 779DE0A17C43114C829AFD91BAE5C564;16526.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44631 strings out of 473578
- 918410 string characters out of 5732243
- 1953960 words of memory out of 5000000
- 66723 multiletter control sequences out of 15000+600000
+ 44634 strings out of 473578
+ 918471 string characters out of 5732243
+ 1956960 words of memory out of 5000000
+ 66724 multiletter control sequences out of 15000+600000
  661860 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,15n,98p,1272b,1340s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/nimbus15/zco-Regular.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/nimbus15/zhv-Bol.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/nimbus15/zhv-BolIta.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/nimbus15/zhv-Reg.pfb>
-Output written on main.pdf (35 pages, 1219243 bytes).
+Output written on main.pdf (35 pages, 1220113 bytes).
 PDF statistics:
- 659 PDF objects out of 1000 (max. 8388607)
- 572 compressed objects within 6 object streams
- 117 named destinations out of 1000 (max. 500000)
- 588 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 665 PDF objects out of 1000 (max. 8388607)
+ 578 compressed objects within 6 object streams
+ 119 named destinations out of 1000 (max. 500000)
+ 596 words of extra memory for PDF output out of 10000 (max. 10000000)
 
