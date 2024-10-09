@@ -1,60 +1,75 @@
-def replicate_dna(dna_sequence):
-    replicated_sequence = ''
-    for nucleotide in dna_sequence:
-        if nucleotide == 'A':
-            replicated_sequence += 'T'
-        elif nucleotide == 'T':
-            replicated_sequence += 'A'
-        elif nucleotide == 'G':
-            replicated_sequence += 'C'
-        elif nucleotide == 'C':
-            replicated_sequence += 'G'
-    return replicated_sequence
+# With this template, you can replicate a DNA sequence, identify the Pribnow box and -35 region, transcribe the DNA sequence to mRNA, and translate the mRNA sequence into amino acids. The only thing needed is to insert your template strand and primer sequence, and the program will do the rest. xD
 
-def transcribe_dna(dna_sequence):
-    rna_sequence = ''
-    for nucleotide in dna_sequence:
-        if nucleotide == 'A':
-            rna_sequence += 'U'
-        elif nucleotide == 'T':
-            rna_sequence += 'A'
-        elif nucleotide == 'G':
-            rna_sequence += 'C'
-        elif nucleotide == 'C':
-            rna_sequence += 'G'
-    return rna_sequence
 
-def translate_rna(rna_sequence):
-    genetic_code = {
-        'AUA': 'Ile', 'AUC': 'Ile', 'AUU': 'Ile', 'AUG': 'fMet',
-        'ACA': 'Thr', 'ACC': 'Thr', 'ACG': 'Thr', 'ACU': 'Thr',
-        'AAC': 'Asn', 'AAU': 'Asn', 'AAA': 'Lys', 'AAG': 'Lys',
-        'AGC': 'Ser', 'AGT': 'Ser', 'AGA': 'Arg', 'AGG': 'Arg',
-        'CUA': 'Leu', 'CUC': 'Leu', 'CUG': 'Leu', 'CUU': 'Leu',
-        'CCA': 'Pro', 'CCC': 'Pro', 'CCG': 'Pro', 'CCU': 'Pro',
-        'CAC': 'His', 'CAU': 'His', 'CAA': 'Gln', 'CAG': 'Gln',
-        'CGA': 'Arg', 'CGC': 'Arg', 'CGG': 'Arg', 'CGU': 'Arg',
-        'GUA': 'Val', 'GUC': 'Val', 'GUG': 'Val', 'GUU': 'Val',
-        'GCA': 'Ala', 'GCC': 'Ala', 'GCG': 'Ala', 'GCU': 'Ala',
-        'GAC': 'Asp', 'GAU': 'Asp', 'GAA': 'Glu', 'GAG': 'Glu',
-        'GGA': 'Gly', 'GGC': 'Gly', 'GGG': 'Gly', 'GGU': 'Gly',
-        'UCA': 'Ser', 'UCC': 'Ser', 'UCG': 'Ser', 'UCU': 'Ser',
-        'UUC': 'Phe', 'UUU': 'Phe', 'UUA': 'Leu', 'UUG': 'Leu',
-        'UAC': 'Tyr', 'UAU': 'Tyr', 'UAA': '*', 'UAG': '*',
-        'UGC': 'Cys', 'UGU': 'Cys', 'UGA': '*', 'UGG': 'Trp'
-    }
-    protein_sequence = ''
-    for i in range(0, len(rna_sequence), 3):
-        codon = rna_sequence[i:i+3]
-        amino_acid = genetic_code.get(codon, 'X')
-        protein_sequence += amino_acid + '-'
-    return protein_sequence.strip('-')
+# ------------------------------------------ Replicating the Template Strand ------------------------------------------
+template_strand = "GATTAGGTAACTGTGATTCGTACGTAACGTGACGATATTAGCATCCACCGCATACAGACGATATGCATAGCTGATCATATCGCC"
+primer = "AUCCAUU"
 
-dna_sequence = 'GUAUGUCUGCUAUACGUAUCGACUAGUAUAGCGG'
-replicated_sequence = replicate_dna(dna_sequence)
-rna_sequence = transcribe_dna(replicated_sequence)
-protein_sequence = translate_rna(rna_sequence)
+# Substitute "U" with "T" in the primer
+primer = primer.replace("U", "T")
 
-print('Replicated DNA sequence:', replicated_sequence)
-print('Transcribed RNA sequence:', rna_sequence)
-print('Translated protein sequence:', protein_sequence)
+# Find the complementary sequence of the primer on the template strand
+complementary_primer = "".join([{"A": "T", "C": "G", "G": "C", "T": "A"}[base] for base in primer][::-1])
+
+# Find the location of the complementary sequence on the template strand
+start_index = template_strand.find(complementary_primer[::-1])
+
+# Create the replicated strand by taking the complementary sequence of the template strand starting from the primer
+replicated_strand = "".join([{"A": "T", "C": "G", "G": "C", "T": "A"}[base] for base in template_strand[start_index:]])
+
+print("Replicated DNA sequence:", replicated_strand)
+
+# ------------------------------------------ Identifying Pribnow box & -35 region ------------------------------------------
+pribnow_box = "TATAAT"
+minus_35_region = "TTGACA"
+
+pribnow_index = replicated_strand.find(pribnow_box)
+minus_35_index = replicated_strand.find(minus_35_region)
+
+print("Pribnow box(-10):", pribnow_index)
+print("(-35) region:", minus_35_index)
+
+# ------------------------------------------ Transcribing to mRNA ------------------------------------------
+transcription_start_index = pribnow_index + len(pribnow_box) + 10
+
+mRNA = "".join([{"T": "U"}[base] if base in "T" else base for base in replicated_strand[transcription_start_index:]])
+
+print("mRNA:", mRNA)
+
+# ------------------------------------------ Translating mRNA into Amino Acids ------------------------------------------
+codon_table = {
+    "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
+    "UCU": "Ser", "UCC": "Ser", "UCA": "Ser", "UCG": "Ser",
+    "UAU": "Tyr", "UAC": "Tyr", "UAA": "Stop", "UAG": "Stop",
+    "UGU": "Cys", "UGC": "Cys", "UGA": "Stop", "UGG": "Trp",
+    "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu",
+    "CCU": "Pro", "CCC": "Pro", "CCA": "Pro", "CCG": "Pro",
+    "CAU": "His", "CAC": "His", "CAA": "Gln", "CAG": "Gln",
+    "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
+    "AUU": "Ile", "AUC": "Ile", "AUA": "Ile", "AUG": "fMet",
+    "ACU": "Thr", "ACC": "Thr", "ACA": "Thr", "ACG": "Thr",
+    "AAU": "Asn", "AAC": "Asn", "AAA": "Lys", "AAG": "Lys",
+    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg",
+    "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
+    "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala",
+    "GAU": "Asp", "GAC": "Asp", "GAA": "Glu", "GAG": "Glu",
+    "GGU": "Gly", "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"
+}
+
+# Find the start codon
+start_index = mRNA.find("AUG")
+
+# Translate the mRNA sequence if start codon is found
+if start_index != -1:
+    # Translate the mRNA sequence
+    amino_acids = []
+    for i in range(start_index, len(mRNA), 3):
+        codon = mRNA[i:i+3]
+        amino_acid = codon_table.get(codon, "Unknown")
+        if amino_acid == "Stop":
+            break
+        amino_acids.append(amino_acid)
+
+    print("Amino Acids:", "-".join(amino_acids))
+else:
+    print("No start codon found.")
