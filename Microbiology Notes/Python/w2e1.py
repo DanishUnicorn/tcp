@@ -6,7 +6,8 @@ template_strand = "GATTAGGTAACTGTGATTCGTACGTAACGTGACGATATTAGCATCCACCGCATACAGACGA
 primer = "AUCCAUU"
 
 # Substitute "U" with "T" in the primer
-primer = primer.replace("U", "T")
+if "U" in primer:
+    primer = primer.replace("U", "T")
 
 # Find the complementary sequence of the primer on the template strand
 complementary_primer = "".join([{"A": "T", "C": "G", "G": "C", "T": "A"}[base] for base in primer][::-1])
