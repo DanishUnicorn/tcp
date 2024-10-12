@@ -54,9 +54,11 @@ vmargin = {30mm, 30mm} % Top and bottom margin
 \usepackage[sc]{mathpazo} % Set math font as Pazo Math (matches Pagella font).
 \usepackage[T1]{fontenc} % For font encoding
 \usepackage{titlesec} % For setting fonts on titles
-\usepackage{tocloft}
+\usepackage{tocloft} % For customizing TOC
+\usepackage{titlesec} % For setting fonts on titles
+\usepackage{anyfontsize} % For setting custom font sizes
 
-\usepackage{nimbusmono}
+\usepackage{nimbusmono} 
 
 \titleformat{\chapter}[display]{\Huge\bfseries\fontencoding{T1}\sffamily\selectfont}{Chapter \thechapter}{0ex}{}[] % Set chapter font
 
@@ -65,6 +67,14 @@ vmargin = {30mm, 30mm} % Top and bottom margin
 \titleformat*{\section}{\Large\bfseries\fontencoding{T1}\sffamily\selectfont}
 \titleformat*{\subsection}{\large\bfseries\fontencoding{T1}\sffamily\selectfont}
 \titleformat*{\subsubsection}{\large\bfseries\fontencoding{T1}\sffamily\selectfont}
+\titleclass{\subsubsubsection}{straight}[\subsection] % Create subsubsubsection
+
+\newcounter{subsubsubsection}[subsubsection] % This and bellow is for specifying the design of the subsubsubsection
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\titleformat{\subsubsubsection}
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \renewcommand{\cfttoctitlefont}{\huge\bfseries\fontencoding{T1}\sffamily\selectfont} % Set TOC title font
   
