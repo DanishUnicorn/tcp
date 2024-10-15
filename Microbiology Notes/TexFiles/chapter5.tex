@@ -1307,5 +1307,113 @@ Table \ref*{tab:ascosporeform} shows a list with some of the typical ascospore f
 \textbf{Rep-PCR and DGGE} – Rep-PCR groups isolates based on repetitive DNA elements, helpful for partial characterization, e.g., in cocoa fermentation. DGGE separates DNA fragments for population dynamics studies, with sensitivity as low as 10\textsuperscript{2} [cfu/ml], useful in wine and coffee fermentation \cite*{L2-YeastClass}
 
 \subsubsection*{Characteristics of food borne yeast genera}
-This section includes approximately 10 pages of tables (Tables VI to XXIII) detailing the taxonomic characteristics of food-borne yeasts relevant to food and beverage production and spoilage, identifying them at the genus level. For species-level identification, refer to the previous criteria and The Yeasts, a Taxonomic Study, 5th edition (Kurtzman, Fell, and Boekhout, 2011) \cite*{L2-YeastClass}.
+This section includes approximately 10 pages of tables (Tables VI to XXIII in the Reading material (RM)) detailing the taxonomic characteristics of food-borne yeasts relevant to food and beverage production and spoilage, identifying them at the genus level. For species-level identification, refer to the previous criteria and The Yeasts, a Taxonomic Study, 5th edition (Kurtzman, Fell, and Boekhout, 2011) \cite*{L2-YeastClass}.
+
+\section{3\textsuperscript{rd} Lecture}
+\subsection*{Introduction}
+\textbf{Bioinformatics} plays a key role in classification and identification, historically through the 16S rRNA gene, now shifting towards whole genome sequences \cite*{L3-SeqBasedClass}.
+
+\textbf{16S rRNA gene} analysis remains a gold standard, but the use of full genomic sequences is growing \cite*{L3-SeqBasedClass}.
+
+The \textbf{phenotype} is still essential for classification. New species must show at least two phenotypic differences from known species, though predicting phenotypes from gene sequences is still limited \cite*{L3-SeqBasedClass}.
+
+\textbf{Identification} links bacterial strains to species, though traditional methods are slow and sometimes inaccurate \cite*{L3-SeqBasedClass}.
+
+\textbf{16S rRNA and other genes}, such as \textit{rpoB}, are used to identify difficult isolates with close genetic relationships \cite*{L3-SeqBasedClass}.
+
+\subsection{Classification of Prokaryotes}
+\subsubsection*{Classification Based on 16S rRNA Gene Sequence Comparison}
+\textbf{16S rRNA sequence comparison} is fundamental for classifying bacteria at species, genus, and higher taxonomic levels \cite*{L3-SeqBasedClass}.
+
+The \textbf{16S rRNA gene} is used because it forms the backbone of ribosomes, making it universal across organisms \cite*{L3-SeqBasedClass}.
+
+\textbf{Gene sequence similarity} is less than 97\% between species and less than 95\% between genera \cite*{L3-SeqBasedClass}.
+
+\textbf{Other methods}, such as DNA-DNA hybridization, are used when species have closer than 97\% similarity \cite*{L3-SeqBasedClass}.
+
+Members of \textbf{Archaea} require different primer sets due to their distinct 16S rRNA genes \cite*{L3-SeqBasedClass}.
+
+\textbf{PCR amplification} with conserved primers can be applied to all bacteria, confirmed by agarose gel electrophoresis \cite*{L3-SeqBasedClass}.
+
+Traditional \textbf{Sanger sequencing} is reliable, though newer methods like PacBio and Nanopore are emerging \cite*{L3-SeqBasedClass}.
+
+The \textbf{16S rRNA gene sequence} is used for database comparison, alignment, and phylogenetic analysis \cite*{L3-SeqBasedClass}.
+
+
+\textbf{DNA-DNA hybridization} is used to classify bacterial strains at the species level by measuring the reassociation of denatured DNA from two strains \cite*{L3-SeqBasedClass}.
+
+\textbf{Hybridization above 70\%} indicates the strains belong to the same species; below 70\% suggests they are different \cite*{L3-SeqBasedClass}.
+
+\textbf{Whole genome sequence comparison} has replaced traditional DDN, measured by ANI (average nucleotide identity) \cite*{L3-SeqBasedClass}.
+
+An \textbf{ANI of 95\%} correlates with the conventional 70\% DDH cutoff, though results between 93-96\% require cautious interpretation \cite*{L3-SeqBasedClass}.
+
+Tools like \textbf{GGDC} and \textbf{JSpecies} calculate DDN or ANI from genome comparisons \cite*{L3-SeqBasedClass}.
+
+\textbf{GC content} offers taxonomic value, with species within the same genus differing by no more than 5\% \cite*{L3-SeqBasedClass}.
+\subsubsection*{Classification Based on Multilocus Sequence Analysis (MLSA)}
+
+\textbf{MLSA} complements \textit{16S rRNA} analysis by using concatenated DNA sequences of conserved genes \cite*{L3-SeqBasedClass}.
+
+Traditionally, up to 10 genes are used, but whole genome comparisons now allow analysis of all conserved genes or proteins \cite*{L3-SeqBasedClass}.
+
+For genomic \textbf{MLSA}, a minimum of 31 genes or proteins is recommended \cite*{L3-SeqBasedClass}.
+
+\textbf{MLSA} is applied at species and higher taxonomic levels \cite*{L3-SeqBasedClass}.
+
+\subsection{Classification of the Taxonomic Hierarchy}
+\subsubsection*{Classification of Species}
+
+\textbf{Taxonomic Unit} – Species is the main taxonomic unit, comprising prokaryotes with 16S rRNA gene sequence similarities above 97\% \cite*{L3-SeqBasedClass}.
+
+\textbf{Confirming Diversity} – DNA-DNA hybridization confirms diversity when 16S rRNA similarities exceed 97\%, requiring over 70\% reassociation \cite*{L3-SeqBasedClass}.
+
+\textbf{Genomic Comparisons} – Whole genomic sequences are replacing experimental DNA-DNA hybridization for grouping species \cite*{L3-SeqBasedClass}.
+
+\textbf{Gene Sequencing} – Housekeeping genes (\textit{recN}, \textit{rpoA}, \textit{thdF}) can define species, with \textit{recN} alone being sufficient \cite*{L3-SeqBasedClass}.
+\subsubsection*{Classification of Genera}
+\textbf{Less Strict Rules} – Classification at the genus level has more lenient criteria, typically requiring less than 95\% 16S rRNA gene sequence similarity \cite*{L3-SeqBasedClass}.
+
+\textbf{Metagenomic Analysis} – A 96\% cutoff is used in metagenomic studies based on partial 16S rRNA gene sequences \cite*{L3-SeqBasedClass}.
+
+\textbf{Protein Comparison} – Average nucleotide identity (ANI) can also be applied to protein comparisons, with conserved protein percentages (POCP) verifying genus classification \cite*{L3-SeqBasedClass}.
+
+\textbf{Protein Similarity} – Different genera should share less than 50\% of their proteins to maintain distinct classification \cite*{L3-SeqBasedClass}.
+\subsubsection*{Classification of Families, Orders, Classes, and Phyla}
+
+\textbf{Lenient Rules} – The classification of higher hierarchical units like families, orders, classes, and phyla is less strict, often formed to accommodate new genera, which may create new orders \cite*{L3-SeqBasedClass}.
+
+\textbf{16S rRNA Identity} – Analysis indicates a minimum of 87.5\% 16S rRNA gene sequence identity between type strains of different families \cite*{L3-SeqBasedClass}.
+
+\textbf{Monophyletic Groups} – While no strict sequence limits exist, families, orders, classes, and phyla should be monophyletic \cite*{L3-SeqBasedClass}.
+
+\textbf{Whole Genomic Comparisons} – Efforts are underway to define these units based on whole genomic comparisons, emphasizing conserved genes \cite*{L3-SeqBasedClass}.
+
+\textbf{Nomenclature Rules} – Families, orders, and classes are governed by the International Code of Nomenclature of Prokaryotes, while phyla are not, and new names must include the type genus \cite*{L3-SeqBasedClass}.
+
+\vspace*{0.5em}
+An example of the taxonomic hierarchy for prokaryotes is shown in table \ref*{tab:L3-TaxnRules} for the bacteria \textit{Escherichia coli} \cite*{L3-SeqBasedClass}.
+
+\begin{table}[h]
+    \centering
+    \caption{Prokaryotic taxonomic categories have validated names written in cursive (ICNP). New classes follow the genus (ICNP rule 8) }
+    \label{tab:L3-TaxnRules}
+    \begin{tikzpicture}
+        \node (table) {
+            \begin{tabularx}{0.66\textwidth}{lll} % Adjust this value as needed
+                \multicolumn{3}{l}{\textbf{Prokaryotes: Bacteria (renum nov.) and Archaea (regnum nov.)}} \\
+                'Phylum' & [Proteobacteria] & \\
+                Class (klasse) & [Gammaproteobacteria] & \rdelim\}{6}{3mm}[Prokaryotic Code]\\
+                Order (orden) & [\textit{Enterobacteriales}] & \\
+                Family (familie) & [\textit{Enterobacteriaceae}] & \\
+                Genus (slægt) & [\textit{Escherichia}] & \\
+                Species (art) & [\textit{Escherichia coli}] & \\
+                Subspecies (underart) & & \\
+            \end{tabularx}
+        };
+        \begin{pgfonlayer}{background}
+            \node[rectangle, rounded corners, draw=blue!20, fill=blue!10, fit=(table)] {};
+        \end{pgfonlayer}
+    \end{tikzpicture}
+    \end{table}
 
