@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{nty/global//global/global}
-    \entry{L1-Chapter6}{book}{}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{L1-Chapter6}{book}{}{}
       \name{author}{1}{}{%
         {{hash=7b003dd2590c790acce895932a9e3285}{%
            family={Alberts},
@@ -32,10 +32,12 @@
       }
       \strng{namehash}{7b003dd2590c790acce895932a9e3285}
       \strng{fullhash}{7b003dd2590c790acce895932a9e3285}
+      \strng{fullhashraw}{7b003dd2590c790acce895932a9e3285}
       \strng{bibnamehash}{7b003dd2590c790acce895932a9e3285}
       \strng{authorbibnamehash}{7b003dd2590c790acce895932a9e3285}
       \strng{authornamehash}{7b003dd2590c790acce895932a9e3285}
       \strng{authorfullhash}{7b003dd2590c790acce895932a9e3285}
+      \strng{authorfullhashraw}{7b003dd2590c790acce895932a9e3285}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
@@ -50,7 +52,7 @@
       \verb https://books.google.dk/books?id=2xIwDwAAQBAJ
       \endverb
     \endentry
-    \entry{L3-SeqBasedClass}{book}{}
+    \entry{L3-SeqBasedClass}{book}{}{}
       \name{author}{1}{}{%
         {{hash=3ee980e820e01b403005f312d8f06737}{%
            family={Christensen},
@@ -69,10 +71,12 @@
       }
       \strng{namehash}{3ee980e820e01b403005f312d8f06737}
       \strng{fullhash}{3ee980e820e01b403005f312d8f06737}
+      \strng{fullhashraw}{3ee980e820e01b403005f312d8f06737}
       \strng{bibnamehash}{3ee980e820e01b403005f312d8f06737}
       \strng{authorbibnamehash}{3ee980e820e01b403005f312d8f06737}
       \strng{authornamehash}{3ee980e820e01b403005f312d8f06737}
       \strng{authorfullhash}{3ee980e820e01b403005f312d8f06737}
+      \strng{authorfullhashraw}{3ee980e820e01b403005f312d8f06737}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
@@ -86,7 +90,7 @@
       \field{year}{2023}
       \keyw{Bioinformatics}
     \endentry
-    \entry{L2-YeastClass}{article}{}
+    \entry{L2-YeastClass}{article}{}{}
       \name{author}{2}{}{%
         {{hash=269b631fd2e4df4c5d95736aa1d88d87}{%
            family={Jakobsen},
@@ -107,10 +111,12 @@
       }
       \strng{namehash}{a9ec4d93a70ad14f843b44ff31119f2b}
       \strng{fullhash}{a9ec4d93a70ad14f843b44ff31119f2b}
+      \strng{fullhashraw}{a9ec4d93a70ad14f843b44ff31119f2b}
       \strng{bibnamehash}{a9ec4d93a70ad14f843b44ff31119f2b}
       \strng{authorbibnamehash}{a9ec4d93a70ad14f843b44ff31119f2b}
       \strng{authornamehash}{a9ec4d93a70ad14f843b44ff31119f2b}
       \strng{authorfullhash}{a9ec4d93a70ad14f843b44ff31119f2b}
+      \strng{authorfullhashraw}{a9ec4d93a70ad14f843b44ff31119f2b}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
       \field{labelnamesource}{author}
@@ -123,7 +129,7 @@
       \field{pages}{1\bibrangedash 28}
       \range{pages}{28}
     \endentry
-    \entry{L3-SugarMet}{article}{}
+    \entry{L3-SugarMet}{article}{}{}
       \name{author}{5}{}{%
         {{hash=b25e8c3cc91d9bb71f1492b428a1aa16}{%
            family={Neves},
@@ -153,10 +159,12 @@
       }
       \strng{namehash}{3aafaddaa5881c3cdc05e4f75dfdd0d7}
       \strng{fullhash}{69c6c2c00349b79d67e11e24a0b43ab7}
+      \strng{fullhashraw}{69c6c2c00349b79d67e11e24a0b43ab7}
       \strng{bibnamehash}{3aafaddaa5881c3cdc05e4f75dfdd0d7}
       \strng{authorbibnamehash}{3aafaddaa5881c3cdc05e4f75dfdd0d7}
       \strng{authornamehash}{3aafaddaa5881c3cdc05e4f75dfdd0d7}
       \strng{authorfullhash}{69c6c2c00349b79d67e11e24a0b43ab7}
+      \strng{authorfullhashraw}{69c6c2c00349b79d67e11e24a0b43ab7}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{labelnamesource}{author}
@@ -177,7 +185,7 @@
       \verb https://doi.org/10.1016/j.fmrre.2005.04.005
       \endverb
     \endentry
-    \entry{L1-DiversityMicro}{article}{}
+    \entry{L1-DiversityMicro}{article}{}{}
       \name{author}{3}{}{%
         {{hash=67f2d419df116f5ce4e234be47069afe}{%
            family={Tamang},
@@ -206,10 +214,12 @@
       }
       \strng{namehash}{b2d36ffa3f4d64dd3f4f58f77531a652}
       \strng{fullhash}{b2d36ffa3f4d64dd3f4f58f77531a652}
+      \strng{fullhashraw}{b2d36ffa3f4d64dd3f4f58f77531a652}
       \strng{bibnamehash}{b2d36ffa3f4d64dd3f4f58f77531a652}
       \strng{authorbibnamehash}{b2d36ffa3f4d64dd3f4f58f77531a652}
       \strng{authornamehash}{b2d36ffa3f4d64dd3f4f58f77531a652}
       \strng{authorfullhash}{b2d36ffa3f4d64dd3f4f58f77531a652}
+      \strng{authorfullhashraw}{b2d36ffa3f4d64dd3f4f58f77531a652}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
@@ -224,7 +234,7 @@
       \range{pages}{1}
       \keyw{Fermented beverages ; Fermented foods ; Microbiology ; Yeast ; Yeast fungi}
     \endentry
-    \entry{L3-LAB}{book}{}
+    \entry{L3-LAB}{book}{}{}
       \name{editor}{4}{}{%
         {{hash=781995aa08a818a9fef4667e3d173e97}{%
            family={Vinderola},
@@ -254,10 +264,12 @@
       }
       \strng{namehash}{03701c7494307c50cb9999de3576d9c6}
       \strng{fullhash}{341b9bbb695a0088f894817365ec13e3}
+      \strng{fullhashraw}{341b9bbb695a0088f894817365ec13e3}
       \strng{bibnamehash}{03701c7494307c50cb9999de3576d9c6}
       \strng{editorbibnamehash}{03701c7494307c50cb9999de3576d9c6}
       \strng{editornamehash}{03701c7494307c50cb9999de3576d9c6}
       \strng{editorfullhash}{341b9bbb695a0088f894817365ec13e3}
+      \strng{editorfullhashraw}{341b9bbb695a0088f894817365ec13e3}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{labelnamesource}{editor}
@@ -267,7 +279,7 @@
       \field{title}{Lactic Acid Bacteria: Microbiology and Functional Aspects}
       \field{year}{2019}
     \endentry
-    \entry{L1-FermentedFoods}{article}{}
+    \entry{L1-FermentedFoods}{article}{}{}
       \name{author}{2}{}{%
         {{hash=4174d8fd33f6fe19fd4f14372f87cac6}{%
            family={Wolfe},
@@ -282,10 +294,12 @@
       }
       \strng{namehash}{658f97ca34e31edb72a142394a84e59a}
       \strng{fullhash}{658f97ca34e31edb72a142394a84e59a}
+      \strng{fullhashraw}{658f97ca34e31edb72a142394a84e59a}
       \strng{bibnamehash}{658f97ca34e31edb72a142394a84e59a}
       \strng{authorbibnamehash}{658f97ca34e31edb72a142394a84e59a}
       \strng{authornamehash}{658f97ca34e31edb72a142394a84e59a}
       \strng{authorfullhash}{658f97ca34e31edb72a142394a84e59a}
+      \strng{authorfullhashraw}{658f97ca34e31edb72a142394a84e59a}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
@@ -309,7 +323,7 @@
       \verb https://www.sciencedirect.com/science/article/pii/S0092867415002007
       \endverb
     \endentry
-    \entry{L3-TaxNotes}{article}{}
+    \entry{L3-TaxNotes}{article}{}{}
       \name{author}{15}{}{%
         {{hash=e4829c2b1031e349e31cc560ede5eafe}{%
            family={Zheng},
@@ -389,10 +403,12 @@
       }
       \strng{namehash}{7934c8dbaff33ad90ff3924c4461fdfd}
       \strng{fullhash}{700567efc1950810bfd0aa112a624aa5}
+      \strng{fullhashraw}{700567efc1950810bfd0aa112a624aa5}
       \strng{bibnamehash}{7934c8dbaff33ad90ff3924c4461fdfd}
       \strng{authorbibnamehash}{7934c8dbaff33ad90ff3924c4461fdfd}
       \strng{authornamehash}{7934c8dbaff33ad90ff3924c4461fdfd}
       \strng{authorfullhash}{700567efc1950810bfd0aa112a624aa5}
+      \strng{authorfullhashraw}{700567efc1950810bfd0aa112a624aa5}
       \field{sortinit}{Z}
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{labelnamesource}{author}
