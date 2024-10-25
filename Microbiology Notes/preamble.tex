@@ -78,23 +78,6 @@ vmargin = {30mm, 30mm} % Top and bottom margin
 
 \renewcommand{\cfttoctitlefont}{\huge\bfseries\fontencoding{T1}\sffamily\selectfont} % Set TOC title font
   
-% REFERENCING AND CITING ---------------------------------------
-\usepackage{biblatex}
-\usepackage{hyperref} % Hyperrefs in TOC, cites, refs etc.
-
-\addbibresource{references.bib}
-\setcounter{tocdepth}{3}
-
-\hypersetup{ % Set hyperref link colors
-    colorlinks,
-    citecolor=black,  
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=blue
-    }
-
-\urlstyle{same} % Set the URL-font to the same as the rest of the document
-
 % FIGURES AND FLOATS ---------------------------------------
 \usepackage{graphicx} % Required for inserting images
 \usepackage{tikz} % Required for drawing
@@ -111,6 +94,25 @@ vmargin = {30mm, 30mm} % Top and bottom margin
 \usepackage[utf8]{inputenc} % For special characters in tables
 
 \usetikzlibrary{fit, backgrounds} % For fitting nodes in tikz
+
+
+
+% REFERENCING AND CITING ---------------------------------------
+\usepackage{biblatex}
+\usepackage{hyperref} % Hyperrefs in TOC, cites, refs etc.
+
+\addbibresource{references.bib}
+\setcounter{tocdepth}{3}
+
+\hypersetup{ % Set hyperref link colors
+    colorlinks,
+    citecolor=black,  
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+    }
+
+\urlstyle{same} % Set the URL-font to the same as the rest of the document
 
 
 % MATH MODE PACKAGES  ---------------------------------------
