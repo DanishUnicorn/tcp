@@ -2,6 +2,8 @@
 \setlength{\headheight}{12.71342pt}
 \addtolength{\topmargin}{-0.71342pt}
 
+This section of the course notes is designed to streamline access to the key findings from each reading material (RM), providing a concise and accessible overview of essential information. Created through experimentation with various AI platforms, this chapter also serves to enhance prompt engineering skills, exploring diverse methods of note-taking for maximum efficiency and clarity. The procedures for creating these summaries have varied, but all methods share a common approach: each RM has been fully read, with summaries and notes prepared after completing each respective subsection. By using these AI-co-op'ed approaches, these notes aim to be both a reliable reference and a resource for continuous improvement in capturing complex microbiology concepts.
+
 \section{1\texorpdfstring{\textsuperscript{st}}{st} lecture}
 \subsection{Article 1 - Fermented Foods as Experimentally Tractable Microbial Ecosystems}
 \subsubsection*{Introduction}
@@ -15,7 +17,7 @@ Several models with these properties have already been developed. These range fr
 
 \subsubsection*{Fermented Foods as Experimentally Tractable Ecosystems}
 Fermented foods have been around for thousands of years and are an excellent example of how humans have optimized conditions to promote various properties of foods. Here are some of the main reasons why fermented foods have been produced for so long \cite*{L1-FermentedFoods}:
-\begin{highlight}
+\begin{highlight}[htbp]
     \begin{itemize}
     \item Good preserving effects
     \item Flavour can be improved
@@ -25,7 +27,7 @@ Fermented foods have been around for thousands of years and are an excellent exa
 \end{highlight}
 
 Some factors for manipulating microbial growth are listed below \cite*{L1-FermentedFoods}:
-\begin{highlight}
+\begin{highlight}[htbp]
     \begin{itemize}
     \item Temperature
     \item Salinity
@@ -35,7 +37,7 @@ Some factors for manipulating microbial growth are listed below \cite*{L1-Fermen
 
 \vspace*{1em}
 The article describes some micorbial communities of fermented foods (MCoFFs) and some examples of these, which will be listed bellow \cite*{L1-FermentedFoods}:
-\begin{highlight}
+\begin{highlight}[htbp]
     \begin{itemize}
     \item Multi-species biofilms associated with surfaces 
     \subitem e.g. cheese rinds
@@ -2028,4 +2030,63 @@ This RM serves as a comprehensive introduction to the principles for isolating m
 
 \subsubsection{First-Generation Sanger Sequencing} 
 \textbf{Sanger sequencing} has traditionally been the method of choice for DNA sequencing, developed by Dr. Sanger, who won the Nobel Prize in Chemistry in 1980. In this technique, a complementary strand of DNA is synthesized from a mixture of 2'-deoxynucleotides and labeled 2',3'-dideoxynucleotides, which lack a 3'-OH group essential for elongation. Incorporation of a dideoxynucleotide terminates elongation, generating DNA fragments of varying sizes \cite*{L5-HighThroughput}.
+
+\subsubsection{Key HTS Platforms} 
+\textbf{Sequencing technologies} have evolved to exponentially increase throughput, with Illumina platforms dominating the market. Illumina's bridge amplification method generates clusters of identical DNA sequences, allowing for paired-end sequencing. This approach enhances output, helps identify splice variants in RNA-seq, and detects large structural variants that short sequencing methods may miss. However, Illumina sequencing has a substitution error rate of 0.11\% due to the availability of all four nucleotides during incorporation  \cite*{L5-HighThroughput}.
+
+\textbf{Ion Torrent} and \textbf{454} sequencing employ polymerase chain reactions in emulsified droplets, detecting sequencing information through light or hydrogen ion release during nucleotide incorporation. Both methods struggle with homopolymer sequences, particularly Ion Torrent, which lacks blocking moieties, complicating interpretation due to nonlinear signals  \cite*{L5-HighThroughput}.
+
+\textbf{Pacific Biosciences Real-Time Sequencer (RS)} uses a circular library bound to a polymerase enzyme for single-molecule sequencing. This technique enables long reads and allows for circular consensus sequencing, resulting in high-quality reads. However, the absence of amplification can limit its application when sample material is low  \cite*{L5-HighThroughput}.
+
+\subsubsection{Common Applications in High-Throughput Sequencing}
+\subsubsubsection*{DNA Sequencing} 
+High-throughput DNA sequencing (DNA-seq) enables the identification of genetic variants related to health. Whole-genome sequencing captures both exons and introns, revealing enhancer regions, promoters, and structural variants. Read depth, defined as the average number of times each nucleotide is observed, is essential for assessing structural variations. A recommended depth of 30x ensures adequate coverage, while 50x enables observation of approximately 94.9\% of single-nucleotide variants (SNVs) \cite*{L5-HighThroughput}.
+
+\textbf{Whole exome sequencing} enriches genomic DNA for coding regions using capture arrays, providing cost-effective coverage but potentially introducing sequencing bias. Targeted sequencing focuses on specific regions of interest, like cancer-related genes, offering high coverage and depth. However, this approach may miss novel variants outside the target region \cite*{L5-HighThroughput}.
+
+\subsubsubsection*{Chromatin Immunoprecipitation Sequencing} 
+Chromatin immunoprecipitation sequencing (ChIP-seq) assesses gene expression through epigenetic modifications. DNA exists as euchromatin (active) or heterochromatin (silent), influenced by histone modifications like H3K27Me3 (repression) and H3K4Me3 (activation). ChIP-seq crosslinks DNA to proteins, fragments the complex, and uses antibodies to isolate specific DNA, indicating transcriptional activity \cite*{L5-HighThroughput}.
+
+It identifies genes bound by transcription factors and active enhancers, such as p300 in developing mouse hearts. Mutations in NKX2-5 can disrupt binding and contribute to cardiovascular diseases \cite*{L5-HighThroughput}.
+
+Chromosome conformation capture sequencing (3C) reveals interactions among distal chromosomal regions, enhancing the understanding of gene expression regulation during heart development \cite*{L5-HighThroughput}.
+
+\subsubsubsection*{Methylation Sequencing}
+\textbf{Methylation of DNA} is an epigenetic modification influencing gene expression, primarily through the modification of \textit{5-methylcytosine}. Methylation occurs at \textbf{cytosine guanine dinucleotides (CpGs)}, with regions high in CpGs termed \textbf{CpG islands}, which can suppress promoter activity and decrease gene expression \cite*{L5-HighThroughput}. 
+
+\textbf{Methylation sequencing} involves isolating and fragmenting DNA, treating one portion with bisulfite to convert unmethylated cytosines to uracils, while leaving methylated cytosines unchanged. This allows for the identification of methylation sites by comparing treated and untreated samples, although incomplete bisulfite conversion may complicate results. The addition of \textbf{spike-in control DNA} can verify conversion completion. Immunoprecipitation of methylation-rich regions has revealed similarities in DNA methylation patterns across different heart conditions, aiding in the identification of hypermethylated versus hypomethylated gene promoters, which may predict gene activation in heart disease stages \cite*{L5-HighThroughput}.
+
+\subsubsubsection*{Transcriptome Sequencing (RNA-seq)}
+\textbf{RNA-seq} is a powerful technique for assessing the transcriptome's state in cells or tissues, providing insights into disease effects or treatment responses. It offers advantages over microarrays, such as higher sensitivity, absolute quantification, and better information on gene expression and splice variants. The process begins with converting RNA to \textbf{cDNA} via reverse transcription, necessitating high-quality RNA to avoid degradation. Various library preparation methods exist, including polyadenylated tail selection and ribosomal RNA depletion, enhancing the recovery of noncoding and degraded RNA signals \cite*{L5-HighThroughput}. 
+
+\textbf{Bioinformatic analysis} involves aligning reads to a reference genome, assembling transcripts, and detecting expression differences, often using tools like the Tuxedo Suite. RNA-seq is particularly relevant in cardiovascular research, allowing for the identification of transcriptome changes linked to heart conditions and providing a deeper understanding of gene expression regulation through methods like ChIP-seq integration. This comprehensive approach aids in elucidating mechanisms underlying cardiovascular diseases and their progression \cite*{L5-HighThroughput}.
+
+\subsubsubsection*{Ribosome Sequencing (Ribo-seq)}
+\textbf{Ribo-seq} analyzes RNA fragments bound to ribosomes, providing insights into active translation during processes like \textbf{mitosis}. The technique involves blocking translation with cycloheximide, followed by RNA fragmentation and isolation of ribosomal RNA for sequencing. Despite its potential to reveal translational mechanisms, Ribo-seq's technical complexity limits its application in cardiovascular research \cite*{L5-HighThroughput}.
+
+\subsubsubsection*{Future of Sequencing Technology}
+Advancements in \textbf{DNA sequencing} are accelerating, yet challenges remain in accuracy and applicability in clinical settings. Improving algorithms and molecular techniques may enhance \textbf{cell-free DNA} and RNA sequencing for cardiovascular health monitoring. Recent innovations enable better control of small volumes and aim for sequencing unmodified native nucleic acids. Future developments may focus on direct sequencing from low-input samples using automated microfluidic systems, facilitating noninvasive genetic analysis \cite*{L5-HighThroughput}.
+
+\subsubsubsection*{Nanopore Sequencing Technologies}
+Oxford Nanopore is advancing \textbf{nanopore sequencing} to analyze unmodified miRNA and mRNA. This technology involves electrophoresing molecules through a pore and measuring the electric current, allowing for sequencing without synthesis. Aiming to sequence entire genomes quickly from minimal input, it also intends to directly measure RNA and proteins. Challenges include controlling DNA flow through the pore and interpreting the data \cite*{L5-HighThroughput}.
+
+\subsection{Article 2 - DNA enrichment and tagmentation method for species-level identification and strain-level differentiation using ON-rep-seq}
+\subsubsection*{Introduction}
+The study discusses the limitations of culture-dependent methods for bacterial identification and the challenges in achieving species and strain-level resolution. While methods like 16S rRNA sequencing offer universality, they often lack the precision needed for strain identification. Advanced techniques such as PFGE, Rep-PCR, MLST, and MALDI-TOF MS face issues like low throughput and high costs. The article proposes a novel DNA enrichment method, ON-rep-seq, which combines optimized Rep-PCR with a dual-stage process for tagmentation, enabling efficient sequencing via Oxford Nanopore Technologies. This method successfully identifies 38 bacterial species and discriminates strains with sensitivity comparable to whole-genome sequencing \cite*{L5-DNAEnrichment}.
+
+\subsubsection*{Results}
+\subsubsubsection*{Rep-PCR-enriched library generates highly reproducible LCp}
+Sequenced Rep-PCR product were tranformed into LCps (a function of reads lenght and abundance). The shape and peaks of the two first sequencing runs were highly reproducible, with minor variability observed in the third run \cite*{L5-DNAEnrichment}.
+
+\subsubsubsection*{Corrected reads from LCp provided detailed identification}
+Using corrected reads from LCp peaks, the pipeline achieved strain-specific LCp generation, within-peak correction, and consensus sequence annotation. High-quality consensus reads enabled unambiguous classification of bacteria down to the species and subspecies level, with an average 99.4\% sequence similarity to validated strains. This method successfully differentiated closely related strains like \textit{Lactobacillus casei} and \textit{Lactococcus lactis} subspecies \cite*{L5-DNAEnrichment}.
+
+\subsubsubsection*{Strain-level differentiation using LCp}
+The algorithm LCpCluster.R identified unique profiles, including identical profiles for closely related \textit{Listeria monocytogenes} strains EGDe and LO28 with high genetic similarity (99.9\% OrthoANI, low k-mer Jaccard distance). Among \textit{Salmonella enterica} strains, three unique profiles emerged, with ON-rep-seq detecting a unique peak (\textasciitilde1370 bp) in strain 4/74, which correlated to SopE$\Phi$ prophage, indicating greater discrimination power than OrthoANI and MLST. \textit{Bacillus cereus} strains also produced distinct profiles, affirming method accuracy across technical replicates \cite*{L5-DNAEnrichment}.
+
+\subsubsubsection*{Theoretical Throughput and Validation}
+The R9.4.1 flow cell throughput theoretically exceeds 1000 isolates. In benchmark testing, two flow cells were assessed. The first generated 2.6M reads after QC, allowing analysis of 4 X 96 bacterial profiles, with the final run yielding 0.22M reads to detect 94 out of 96 samples. The second flow cell produced 2.49M reads over three runs, successfully processing 96 profiles. Through iterative subsampling and ROC analysis, 20\% of reads (avg. 1730 pr. sample) proved sufficient for reliable analysis, with the estimated capacity of 960-1440 isolates per flow cell depending on run performance \cite*{L5-DNAEnrichment}.
+
+\section{6\texorpdfstring{\textsuperscript{th}}{th} lecture}
+
 
