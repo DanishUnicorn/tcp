@@ -2133,11 +2133,105 @@ Baker's yeast, one of the oldest and has a global production exceeding \(2 \time
 \subsubsection*{Cheese}
 Yeasts are found in various cheese types, with counts reaching \(10^6\) [CFU/g] or higher. Yeast development generally occurs spontaneously, though selected strains are occasionally used in specific mold-ripened and surface-ripened cheeses to aid maturation \cite*{L6-HealthDisease}. Yeasts play roles in the maturation and flavor profile of white and blue mold cheeses. In blue mold cheeses, yeast populations are higher in the cheese interior than in white mold cheeses, enhancing the unique flavor and texture \cite*{L6-HealthDisease}. Yeast presence in cheese is typically ecosystem-driven, influenced by cheese brine and dairy environmental conditions, rather than through standardized starter cultures \cite*{L6-HealthDisease}.
 
-\vspace{0.5em}
+\vspace{1em}
 For the remaining cheese section of the article, please refer to the original source where varipus yeasts are described in detail \cite*{L6-HealthDisease}.
 
 \subsubsection*{Meat}
 Cheese and meat products share similar microenvironments, enabling fungal growth in low-temperature, low-water, high-salt conditions. Fungal starters, such as \textit{Penicillium} and \textit{Mucor}, are sometimes added in meat fermentation, where they enhance proteolytic and lipolytic activities, aiding flavor formation \cite*{L6-HealthDisease}. Fungal starters contribute to aroma and sensory characteristics in both cheese and meat, especially in surface-ripened varieties. While more common in cheese, such fungi can be protective cultures in meat, preventing undesired microbial growth and spoilage \cite*{L6-HealthDisease}. Controlled fungal starters reduce risks of mycotoxin formation in spontaneous fermentations of meat (e.g., sausages and hams), yet their use remains less established than in dairy. The yeast \textit{Candida utilis}, known for volatile compound production, enhances cured meat's flavor and coloration while reducing nitrate to nitrite \cite*{L6-HealthDisease}.
+
+\section{7\texorpdfstring{\textsuperscript{th}}{th} lecture}
+No RM was provided for this lecture.
+
+\section{8\texorpdfstring{\textsuperscript{th}}{th} lecture}
+\subsection{Article 1 - Food fermentations: role of microorganisms in food production and preservation}
+\subsubsection*{Introduction}
+The practice of \textbf{fermenting foods} dates to \textbf{6000 BC} in ancient Middle Eastern civilizations, where early artisanal methods produced foods with enhanced \textbf{preservation} and sensory qualities. By the \textbf{19th century}, urbanization and the \textbf{industrial revolution} necessitated large-scale production, with advances in \textbf{microbiology} clarifying the role of \textit{bacteria}, \textit{yeasts}, and \textit{molds} in \textbf{fermentation} \cite*{L8-MicroInFood}.
+
+To ensure \textbf{consistency}, especially in dairy, \textbf{starter cultures} became critical, advancing control over \textbf{lactic acid bacteria} and facilitating large-scale, high-quality production. Traditional methods like \textbf{backslopping} continue for certain artisanal products, which maintain unique \textbf{flavor} and \textbf{aroma}, though scaling up may diminish these traits \cite*{L8-MicroInFood}.
+
+\subsubsection*{Essential Elements of Food Fermentation}
+\textbf{Food preservation} via \textbf{fermentation} relies on partial \textbf{oxidation} of carbohydrates, yielding acids, alcohol, and CO$_2$, which inhibit spoilage microbes while retaining nutritional value. Though originally considered an \textbf{anaerobic} process, fermentation now includes both aerobic and anaerobic carbohydrate breakdowns \cite*{L8-MicroInFood}.
+
+Key microorganisms, primarily \textit{lactic acid bacteria}, contribute not only to preservation but also to \textbf{flavor}, \textbf{aroma}, and \textbf{texture}, aiding in unique product profiles. Fermentation may improve \textbf{nutritional quality} by enhancing digestibility, as with cheese, or by providing \textbf{functional components} like probiotics, vitamins, and antioxidants. Reducing food \textbf{toxicity} through fermentation, as seen in gari, exemplifies its diverse benefits \cite*{L8-MicroInFood}.
+
+\subsubsection*{Metabolic Activity of Lactic Acid Bacteria}
+\textbf{Lactic acid bacteria (LAB)} are primarily mesophilic, thriving at temperatures from 5\textdegree C to 45\textdegree C and pH levels from 3.2 to 9.6. They require preformed amino acids, purines, and B vitamins for growth. LAB metabolize carbohydrates exclusively through \textbf{substrate-level phosphorylation}, producing mainly lactic acid \cite*{L8-MicroInFood}. LAB are categorized into \textbf{homofermentative} and \textbf{heterofermentative} groups, see figure \ref*{fig:L8-lactic_acid_fermentation}, with homofermenters like \textit{Lactococcus} generating lactic acid as the primary product, while heterofermenters such as \textit{Weisella} produce lactic acid, CO$\_2$, and ethanol \cite*{L8-MicroInFood}.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+        node distance=2cm,
+        compound/.style={draw=none},
+        arrow/.style={->, >=latex, thick},
+        pathway_label/.style={sloped, above}
+    ]
+    
+    % Main glucose node with larger font
+    \node[compound] (glucose) at (0,0) {\Large Glucose};
+    
+    % Nodes for the pathways
+    \node[compound] (g6p1) at (-3,-2) {Glucose-6-P};
+    \node[compound] (g6p2) at (3,-2) {Glucose-6-P};
+    
+    % Path labels with arrows and text above
+    \draw[arrow] (glucose) -- node[sloped, above] {Homolactic} (g6p1);
+    \draw[arrow] (glucose) -- node[sloped, above] {Heterolactic} (g6p2);
+    
+    % Homolactic pathway
+    \node[compound] (f6p) at (-3,-3) {Fructose-6-P};
+    \node[compound] (f16dp) at (-3,-4) {Fructose-1,6-DP};
+    \node[compound] (g3p) at (-5.5,-5) {Glyceraldehyde-3-P};
+    \node[compound] (dhap) at (-1.5,-5) {Dihydroxyacetone-P};
+    \node[compound] (pyr1) at (-5.5,-6.5) {2 Pyruvate};
+    \node[compound] (lac1) at (-5.5,-7.5) {2 Lactate};
+    
+    % Heterolactic pathway
+    \node[compound] (6pg) at (3,-3) {6-phosphogluconate};
+    \node[compound] (r5p) at (3,-4) {Ribulose-5-P};
+    \node[compound] (x5p) at (3,-5) {Xylulose-5-P};
+    \node[compound] (g3p2) at (2,-6) {Glyceraldehyde-3-P};
+    \node[compound] (ap) at (5,-6) {Acetyl-P};
+    \node[compound] (pyr2) at (2,-7) {Pyruvate};
+    \node[compound] (acet) at (5,-7) {Acetaldehyde};
+    \node[compound] (lac2) at (2,-8) {Lactate};
+    \node[compound] (eth) at (5,-8) {Ethanol};
+    
+    % Rest of the arrows for homolactic pathway
+    \draw[arrow] (g6p1) -- (f6p);
+    \draw[arrow] (f6p) -- (f16dp);
+    \draw[arrow] (f16dp) -- (g3p);
+    \draw[arrow] (f16dp) -- (dhap);
+    \draw[<->, >=latex, thick] (g3p) -- (dhap);
+    
+    % Draw the vertical arrow from g3p to pyr1
+    \draw[arrow] (g3p) -- (pyr1);
+    \draw[arrow] (pyr1) -- (lac1);
+    
+    % H2O label with arrow coming from the vertical path
+    \node[compound] (h2o) at (-6.5,-5.75) {H\textsubscript{2}O};
+    \draw[arrow] (-5.5,-5.75) -- (h2o);
+    
+    % Arrows for heterolactic pathway
+    \draw[arrow] (g6p2) -- (6pg);
+    \draw[arrow] (6pg) -- (r5p);
+    \draw[arrow] (r5p) -- (x5p);
+    \draw[arrow] (x5p) -- (g3p2);
+    \draw[arrow] (x5p) -- (ap);
+    \draw[arrow] (g3p2) -- (pyr2);
+    \draw[arrow] (ap) -- (acet);
+    \draw[arrow] (pyr2) -- (lac2);
+    \draw[arrow] (acet) -- (eth);
+    
+    \end{tikzpicture}
+    \caption{Generalized scheme for the fermentation of glucose in lactic acid bacteria.}
+    \label{fig:L8-lactic_acid_fermentation}
+\end{figure}
+
+\subsubsection*{Microbial Interference}
+\textbf{Microbial interference} is a non-specific control that inhibits certain microbes through competition with natural flora. Relying on high interfering populations, mechanisms include \textbf{nutrient competition}, adverse \textbf{environmental changes}, and \textbf{attachment site competition} \cite*{L8-MicroInFood}.
+
+\subsubsection*{Antibiosis by Lactic Acid Bacteria}
+\textit{Lactic acid bacteria} provide \textbf{biopreservation} via organic acids, hydrogen peroxide, diacetyl, reuterin, and bacteriocins, inhibiting pathogens in foods. \textbf{Microguard}, a product from \textit{P. freudenreichii} fermentation, is GRAS-approved in U.S. cottage cheese to prevent gram-negative bacteria and molds \cite*{L8-MicroInFood}.
 
 
 
