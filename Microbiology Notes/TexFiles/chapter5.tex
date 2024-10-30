@@ -2692,11 +2692,43 @@ Prebiotics enhance stool consistency and frequency via SCFA-regulated gut hormon
 \subsubsection*{Effect on satiety}
 \textbf{SCFAs} from prebiotic fermentation may enhance \textbf{satiety} by activating \textbf{FFAR2} and \textbf{FFAR3} receptors, influencing GLP-1 and PYY release. Acetate, the main SCFA, can cross the \textbf{blood-brain barrier}, promoting \textbf{appetite suppression} through hypothalamic action \cite*{L10-Pro_Pre}.
 
+\section{11\texorpdfstring{\textsuperscript{th}}{th} lecture}
+\subsection{Article 1 -  Microbial growth kinetics}
+\subsubsection*{Introduction}
+Fermentations are done in \textbf{batch}, \textbf{continuous}, or \textbf{fed-batch}. This chapter focuses on \textbf{kinetics} and application \cite*{L11-MicroGrow}.
+
+\subsubsection{Batch Culture}
+Batch culture is a closed system with a limited nutrient supply. After inoculation, a \textbf{lag phase} occurs, marking a period of adaptation. Minimizing the lag phase is essential in commercial processes, achievable through suitable inoculum and conditions \cite*{L11-MicroGrow}.
+
+\subsubsubsection{Exponential Phase \textit{(with equations)}}
+In the exponential phase, microbial cells grow at a constant maximum rate, with biomass increase proportional to initial biomass. The specific growth rate ($\mu$) is defined as the biomass produced per unit of biomass over time, expressed in Equation \ref*{eq:ExpoGrow} \cite*{L11-MicroGrow}.
+
+\begin{equation}
+    \frac{dx}{dt} = \mu\cdot x 
+    \label{eq:ExpoGrow}
+\end{equation}
+
+    Where x is the microbial biomass and t is time \cite*{L11-MicroGrow}.
+
+    When integrated, Equation \ref*{eq:ExpoGrow} yields Equation \ref*{eq:ExpoGrowInt} \cite*{L11-MicroGrow}.
+
+\begin{equation}
+    x_t = x_0\cdot e^{\mu\cdot t}
+    \label{eq:ExpoGrowInt}
+\end{equation}
+    
+    Where $x_t$ is the biomass at time t, $x_0$ is the initial biomass, and \( e \) is the natural logarithm \cite*{L11-MicroGrow}.
+
+    After taking the natural logarithm, Equation \ref*{eq:ExpoGrowInt} becomes Equation \ref*{eq:ExpoGrowLog} \cite*{L11-MicroGrow}.
+\begin{equation}
+    ln(x_t) = ln(x_0) + \mu\cdot t
+    \label{eq:ExpoGrowLog}
+\end{equation}
 
 
+When Equation \ref*{eq:ExpoGrowLog} is plotted, a straight line is obtained, with the slope representing the specific growth rate \cite*{L11-MicroGrow}.
 
-
-
+Though, under the exponential phase, nutrients and environment facilitates seemingly endlees growth, the \textbf{stationary phase} follows, where growth ceases due to nutrient depletion and waste accumulation. The \textbf{death phase} then occurs, with cells dying faster than new ones are produced \cite*{L11-MicroGrow}.
 
 
 
