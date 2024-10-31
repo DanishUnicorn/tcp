@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile LaTeX",
+            "type": "shell",
+            "command": "latexmk -pdf main.tex",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean LaTeX Auxiliary Files",
+            "type": "shell",
+            "command": "latexmk -c main.tex",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build and Clean LaTeX",
+            "dependsOn": [
+                "Compile LaTeX",
+                "Clean LaTeX Auxiliary Files"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
