@@ -2728,10 +2728,35 @@ After taking the natural logarithm, Equation \ref*{eq:ExpoGrowInt} becomes Equat
 
 When Equation \ref*{eq:ExpoGrowLog} is plotted, a straight line is obtained, with the slope representing the specific growth rate \cite*{L11-MicroGrow}.
 
-Though, under the exponential phase, nutrients and environment facilitates seemingly endlees growth, the \textbf{stationary phase} follows, where growth ceases due to nutrient depletion and waste accumulation. The \textbf{death phase} then occurs, with cells dying faster than new ones are produced \cite*{L11-MicroGrow}.
+Though, under the exponential phase, nutrients and environment facilitates seemingly endlees growth, the \textbf{stationary phase} follows, where growth ceases due to nutrient depletion and waste accumulation. The \textbf{death phase} then occurs, with cells dying faster than new ones are produced. The lag phase, log phase and the stationary phase can be seen on figure \ref*{fig:LogPhase} \cite*{L11-MicroGrow}.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/L11A1-s_graph.JPG}
+    \caption{Growth curve of a microbial population \cite*{L11-MicroGrow}}
+    \label{fig:LogPhase}
+\end{figure}
 
+\subsubsubsection*{Deceleration and Stationary Phases}
+In microbial growth, \textbf{deceleration} and \textbf{stationary phases} occur as nutrients deplete or toxins build up, slowing growth until it ceases. This can be discribed from Equation \ref*{eq:DecelGrow}, where the groth inclines less than under the log phase, until it reaches the stationary phase \cite*{L11-MicroGrow}.
 
+\begin{equation}
+    x = Y \cdot (S_R-s)
+    \label{eq:DecelGrow}
+\end{equation}
 
+Where Y is Biomass yield, $S_R$ is the initial substrate concentration and s is the residual substrate concentration. In between the log phase and the stationary phase, s, becomes 0 \cite*{L11-MicroGrow}. 
 
+The decrease in the specific growth rate is described by Equation \ref*{eq:DecelGrowRate} \cite*{L11-MicroGrow}.
+
+\begin{equation}
+    \mu = \mu_{max} \cdot \frac{s}{K_s + s}
+    \label{eq:DecelGrowRate}
+\end{equation}
+
+Here $\mu_{max}$ is the maximum specific growth rate and $K_s$ is the substrate utilization constant. The specific growth rate decreases as s decreases, reaching 0 at the stationary phase \cite*{L11-MicroGrow}.
+
+Though the growth rate halts, the microbial population remains viable, adapting to the environment and does not die immedialty. Stationary phase adaptations include morphology changes, enzyme production, and \textbf{stress resistance}. For example, in \textit{E. coli}, sigma factor $\sigma^S$ induces resilience, while \textit{Bacillus subtilis} and \textit{Streptomyces spp.} form endospores or hyphae via quorum sensing and nutrient signals \cite*{L11-MicroGrow}.
+
+\section{12\texorpdfstring{\textsuperscript{th}}{th} lecture}
 
