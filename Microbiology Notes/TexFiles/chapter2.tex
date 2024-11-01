@@ -951,6 +951,143 @@ The technological properties of \textit{Bacillus} species contribute to enhanced
 \subsection{Introduction to Fermentation Processes}
 Fermentation is a crucial biological process that transforms sugars into alcohol or acids using microorganisms. Understanding fermentation processes is essential for producing various food products and improving their quality.
 
+\subsection{Fermentation equations}
+\subsubsection*{Mass balances}
+The follwoing three equations are used to describe the mass balances in fermentation process:
 
+Equation \ref*{eq:sp_growth_rate} illustrates the specific growth rate:
+\begin{equation}
+    \mu = \frac{dx}{dt} \cdot \frac{1}{x}
+    \label{eq:sp_growth_rate}
+\end{equation}
+\begin{center}
+    \footnotesize{[biomass/(biomass $\cdot$ time)]}
+\end{center}
 
+\vspace{0.5em}
+Equation \ref*{eq:sp_cons_rate} illustrates the specific consumption rate (of substrate):
+\begin{equation}
+    q_s = \frac{ds}{dt} \cdot \frac{1}{x}
+    \label{eq:sp_cons_rate}
+\end{equation}  
+\begin{center}
+    \footnotesize{[substrate/(biomass $\cdot$ time)]}
+\end{center}
 
+\vspace{0.5em}
+Equation \ref*{eq:sp_prod_rate} illustrates the specific production rate (of product/metabolite):
+\begin{equation}
+    q_p = \frac{dp}{dt} \cdot \frac{1}{x}
+    \label{eq:sp_prod_rate}
+\end{equation}
+\begin{center}
+    \footnotesize{[product/(biomass $\cdot$ time)]}
+\end{center}
+
+Where x is the biomass concentration, s is the substrate concentration, and p is the product concentration. All at a given time t.
+
+\subsubsection*{Specific growth rate}
+The specific growth rate ($\mu$) is the rate at which the biomass concentration increases per unit of biomass. It is a key parameter in fermentation processes, influencing the overall productivity and efficiency of the system. In the lecture it was mentioned that the specific growth rate is influenced by the substrate concentration, temperature, pH, and other environmental factors but also some approximations for the different steps in the S-curved graph.
+
+\begin{highlight}
+    \begin{itemize}
+        \item \textbf{Lag phase:} $\mu = 0$
+        \item \textbf{Accelerating phase} $\mu: 0 \rightarrow \mu_{max}$
+        \item \textbf{Exponential phase} $\mu = \mu_{max}$
+        \item \textbf{Decelerating phase} $\mu: \mu_{max} \rightarrow 0$
+        \item \textbf{Stationary phase} $\mu = 0$
+        \item \textbf{Death phase} $\mu < 0$
+    \end{itemize}
+\end{highlight}
+
+\subsubsection*{Maximum specific growth rate (bacth/exponential phase)}
+The maximum specific growth rate can be seen in Equation \ref*{eq:sp_growth_rate_max} and is described as:
+
+\begin{equation}
+    ln(x) - ln (x_0) = \mu_{max} \cdot t
+    \label{eq:sp_growth_rate_max}
+\end{equation}
+
+Where x is the biomass concentration in the exponential phase, $x_0$ is the initial biomass concentration in the exponential phase, $\mu_{max}$ is the maximum specific growth rate, and t is the time.
+
+\subsubsection*{Growth yield factor (batch)}
+The growth yield factor can be seen in Equation \ref*{eq:yield_factor} and is described as:
+\begin{equation}
+    \frac{\Delta X}{\Delta S} = Y_{SX}
+    \label{eq:yield_factor}
+\end{equation}
+
+Where $\Delta X$ is the change in biomass concentration, $\Delta S$ is the change in substrate concentration, and $Y_{SX}$ is the growth yield factor.
+
+\subsubsection*{Product yield factor (batch)}
+The product yield factor can be seen in Equation \ref*{eq:prod_yield_factor} and is described as:
+\begin{equation}
+    \frac{\Delta p}{\Delta S} = Y_{SP}
+    \label{eq:prod_yield_factor}
+\end{equation}
+
+Where $\Delta p$ is the change in product concentration, $\Delta S$ is the change in substrate concentration, and $Y_{SP}$ is the product yield factor on a substrate basis.
+
+\subsubsection*{Product yield factor (cell basis) (batch)}
+The product yield factor on a cell basis can be seen in Equation \ref*{eq:prod_yield_factor_cell} and is described as: 
+\begin{equation}
+    \frac{\Delta p}{\Delta x} = Y_{xp}
+    \label{eq:prod_yield_factor_cell}
+\end{equation}
+
+Where $\Delta p$ is the change in product concentration, $\Delta x$ is the change in biomass concentration, and $Y_{xp}$ is the product yield factor on a cell basis.
+
+\subsubsection*{Specific consumption rate (batch/exp. phase)}
+The specific consumption rate during the exponential rate can be seen in Equation \ref*{eq:sp_cons_rate_exp} and is described as:
+\begin{equation}
+    q_s = \frac{dx}{dt} \cdot \frac{1}{x} = \mu_{max} \cdot (\frac{1}{Y_sx})
+    \label{eq:sp_cons_rate_exp}
+\end{equation}
+
+Where $q_s$ is the specific consumption rate, $\mu_{max}$ is the maximum specific growth rate during the exponential phase, and $Y_sx$ is the growth yield factor during the exponential phase.
+
+\subsubsection*{Specific production rate (batch/exp. phase)}    
+The specific production rate during the exponential rate can be seen in Equation \ref*{eq:sp_prod_rate_exp} and is described as:
+\begin{equation}
+    q_p = \frac{dp}{dt} \cdot \frac{1}{x} = \mu_{max} \cdot Y_{xp}
+    \label{eq:sp_prod_rate_exp}
+\end{equation}
+
+Where $q_p$ is the specific production rate during the exponential phase, $\mu_{max}$ is the maximum specific growth rate during the exponential phase, and $Y_{xp}$ is the product yield factor during the exponential phase.
+
+\subsubsection*{Volumetric production rate (batch/exp. phase)}
+The volumetric production rate during the exponential rate can be seen in Equation \ref*{eq:vol_prod_rate_exp} and is described as:
+\begin{equation}
+    r_p = \frac{dp}{dt} = q_p \cdot x
+    \label{eq:vol_prod_rate_exp}
+\end{equation}
+    
+Where $r_p$ is the volumetric production rate during the exponential phase, $q_p$ is the specific production rate during the exponential phase, and x is the biomass concentration during the exponential phase.
+
+\subsection{Growth Kinetics in Batch Fermentation}
+Understanding growth kinetics in batch fermentation is critical for predicting microbial behavior. The maximum specific growth rate ($\mu_{max}$) serves as a key parameter for assessing the efficiency of microbial growth during the fermentation process \cite*{L11-MicroGrow}.
+
+\subsection{Yield Factors and Production Rates in Fermentation}
+Yield factors, such as growth yield and product yield, are important metrics in fermentation. They quantify how efficiently substrates are converted into biomass and products, providing insights into the effectiveness of fermentation processes \cite*{L11-MicroGrow}.
+
+\section{09.10.24 - Plant-based fermentation}
+\subsection{Plant-Based Fermentation Learning Outcomes} 
+This lecture aims to provide knowledge about various types of plant-based fermentations and their characteristics. Students will learn to identify and understand the functionality of different microorganisms involved in these processes. Additionally, there will be a focus on reflecting on how fermentation can be applied to develop new plant-based products.
+
+\subsection{Climate Change and Food Security Implications} 
+Climate change significantly affects food security, particularly by impacting agricultural productivity and crop yields. Regions such as Africa and high mountain areas in Asia and South America are especially vulnerable. The interrelationship between foodborne microorganisms, climate change, and food systems is crucial, raising questions about the optimization of plant-based foods through microbial intervention.
+
+\subsection{Current Trends in Food Fermentation} 
+There is a noticeable shift towards more fermented plant-based foods, characterized by increased product diversity and the use of new raw materials and microbes. Key trends include optimizing taste and texture, promoting clean labeling, and using fermentation as a green technology. Solid-state fermentations present challenges, while the focus on probiotics and preventing food waste highlights the role of fermentation in sustainable food systems.
+
+\subsection{Traditional Fermented Foods Across Cultures} 
+Traditional fermented foods, such as tempeh, beer, kombucha, and kvass, showcase the diversity of plant-based beverages. These products rely on various microorganisms, including yeasts and lactic acid bacteria, for acidification, aroma, and flavor development. The fermentation process enhances the nutritional profile and shelf life of these foods, making them integral to many cultures.
+
+\subsection{Microbial Functionality in Plant-Based Fermentation}
+Microorganisms play vital roles in plant-based fermentation by improving taste, texture, and nutritional availability. The use of specific microbial strains, such as \textit{Rhizopus oligosporus} for tempeh, demonstrates their ability to enhance digestibility and reduce anti-nutritional factors. Understanding microbial interactions and enzyme activities is essential for optimizing fermentation processes.
+
+\subsection{Safety Considerations in Fermented Plant Foods} 
+Food safety remains a critical concern in plant-based fermentations. Potential issues include the production of toxins, the survival of pathogenic microorganisms, and the presence of natural toxic compounds. Implementing controlled process conditions and using starter cultures can mitigate these risks, ensuring that fermented products are safe for consumption.
+
+\subsection{Next Generation Proteins} 
+The production of next-generation proteins through fermentation requires innovative approaches, including the use of novel starter cultures and bio-protective microorganisms. The focus is on enhancing taste, texture, and nutrient composition while masking off-flavors from raw materials like peas and beans. Fermentation can improve the bioavailability of nutrients and contribute to the sustainability of food production by utilizing diverse plant-based raw materials. Specific microbial strains are essential for achieving desired sensory attributes and ensuring food safety in these new protein products.
