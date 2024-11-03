@@ -1,7 +1,9 @@
 \chapter{Lecture Exercises}
+\setlength{\headheight}{22.94003pt}
+\addtolength{\topmargin}{-10.22661pt}
 
 \section{02.09.24 - Exercise 1 - CasePCR}
-A part of the DNA fragment shown below is to be amplified using PCR and the primers P1 and P2. Following amplification the PCR product is cut with the restriction enzymes EcoRI (recognising the sequence 5’ GAATTC 3’ and cutting with a 4-base overhang).
+A part of the DNA fragment shown below is to be amplified using PCR and the primers P1 and P2. Following amplification the PCR product is cut with the restriction enzymes EcoRI (recognising the sequence 5'- G A A T T C -'3 and cutting with a 4-base overhang).
 
 The DNA fragment:
 
@@ -15,23 +17,53 @@ P1: 5’ C A G C 3’
 
 P2: 5’ G T G A 3’
 
-
-
-
 \subsection*{What is the size (in base pairs) of the PCR-product?}
-The P1 primer starts from the $3^{rd}$ base pair from the left, and the P2 primer starts from the $21^{st}$ base pair from the left. The PCR product will therefore be the DNA sequence between the two primers.
+The P1 primer starts binding at the $3{rd}$ base pair from the left, marking the start of the PCR product and is included in the count. The P2 primer binds at the $21^{st}$ base pair, marking the endpoint of the PCR product, which is also included.
 
-The PCR product will be the DNA sequence between the 3rd and 21st base pair. The size of the PCR-product will therefore be $28 - (P1 + P2) - (left \ end) - (right \ end) = 28 - 8 - 2 - 4 = \uuline{14 \ base \ pairs}$.
+The PCR product will therefore be the DNA sequence from the 3rd to the 21st base pair. To find the total number of base pairs within this range, we wil use Equation \ref{eq:PCRProductSize}.
 
-5'- G T T T G A A T T C G A C T -'3
+\begin{equation}
+    \text{PCR product length} = (\text{End position}) - (\text{Start position}) + 1
+    \label{eq:PCRProductSize}
+\end{equation}
 
-3'- C A A A C T T A A G C T G A -'5
+Now we can insert the values of the PCR product and the length can therefore be calculated from Equation \ref{eq:PCRProductSize1.1}:
 
-\subsection*{How many copies of DNA do you have after 4 PCR cycles if you start with 3 copies of the DNA-fragment to be copied (considering ideal conditions)?}
+\begin{equation}
+    21 - 3 + 1 = 19
+    \label{eq:PCRProductSize1.1}
+\end{equation}
 
+5'- C A G C G T T T G A A T T C G A C T T -'3
+
+3'- G T C G C A A A C T T A A G C T G A A -'5
+
+\subsection*{How many copies of DNA do you have after 4 PCR cycles if you start with 3 copies of the DNA fragment to be copied (under ideal conditions)?}
+Since PCR follows an exponential growth model, the amount of DNA doubles with each cycle, represented by $X \cdot 2^n$, where $X$ is the initial number of DNA copies, and $n$ is the number of PCR cycles. After 4 PCR cycles, the DNA quantity will be $2^4 = 16$ times the initial amount.
+
+Given that we start with 3 copies of the DNA fragment, the total amount of DNA after 4 PCR cycles will be $3 \cdot 2^4 = 48$ copies.
 
 \subsection*{What is the size of the 2 fragments after cutting with EcoRI?}
+From the first task, we know that the PCR product is 19 base pairs long. The EcoRI restriction enzyme recognizes the sequence 5'-G A A T T C-3' and cuts with a 4-base pair overhang. The cutting site of EcoRI is 
+(
+    5'-G A A 
+\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+  \draw[decorate, decoration={zigzag, segment length=4, amplitude=2}] (0,0) -- (0,1.5ex);
+\end{tikzpicture}
+T T C-3'
+). 
 
+\vspace*{0.5em}
+The PCR product is:
+
+5'- C A G C G T T T \textcolor{red}{G A A T T C} G A C T T -'3
+
+\vspace*{0.5em}
+The cut will be between the $11^{th}$ and the $12^{th}$ base pair, and the two fragments will be:
+
+Fragment 1: 5'- C A G C G T T T \textcolor{red}{G A A} -'3 = 11 base pairs.
+
+Fragment 2: 5'- \textcolor{red}{T T C} G A C T T -'3 = 8 base pairs.
 
 \section{11.09.24 - Exercise 1 - Replication, Transcription and Translation in prokaryotes}
 For an automated version of answering this exercise, please see the file w2e1.py in the Python folder. This file will automatically replicate, transcribe and translate the given DNA sequence. Use the file as a template for future exercises if needed.
