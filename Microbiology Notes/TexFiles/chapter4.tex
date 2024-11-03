@@ -353,8 +353,78 @@ Here we simply need to insert a sequence and choose the right restriction enzyme
     \label{fig:Exc4sub6}
 \end{figure}
 
+\section{11.09.24 - Exercise 5 - Translation}
+The mRNA is a type of RNA that “passes” genetic information from DNA to protein. In this process (called translation) mRNA is read on ribosomes according to the genetic code. Below you can find an example of mRNA sequence:
+
+\vspace{1em}
+
+A A \colorbox{green}{U A G} G G A U G G G A U U U A U G A G A A A A G C C G A U U U U G A G C U U U A U C G U G A U G C A G A U A A A C A U U A U A A U C A G G U A C U A A C C A C A C G U G A U U U U C U U G C A C U A G G U G U U G G A A C A A U U A U U U C A A C U U C U A U C U U U A C C U U G C C A G G A C A A G U U G C C G C U C A A U U U G C G G G C C C A G G G U U G U C U U U U C U U A U C U A C U U G C C G C U U U G G U C G C U G G U U U U G U G G C C U U G G C U U A U G C U G A A A U G U C A A C A G U A A U G C C C U U U G C U G G U U C A G C C U A U U C U U G G A U U U C G G U C U U A U U U G G C G A A G G U U U C G G C U G G A U U G C U G G U U G G C U U U G C U U G C U G G A A U A U U U A U U G C U G U U G C C U U U G U U G G C U C A G G U U U C U C A G C A A A U C U U C A G C A A U U A C U A G C G C C A C U C G G U U U C C A A C U G C C A A A G U A U U G G C C A A C C C U U U G G U A C A G A U G G U G G A U C G U U G A U A U A U U C A C U U U G G U C A U U U G C U C U C G G C A A U U A U U G U C U U U C G U G G G C A U C U G A U G C U G G A C G A A U C A G U C A A U U C U U G U U G U C U U A A G U G G C A G C G G U U A U U G C U U U C A U C A U U G G G A U U A C G G U C A U U A A G C C A G C A A A U U A C C A U C C A U U U A U U C C G C C A C A C A A U C C G A A A C A G G U U U G G U G C U U C U C G G G A U U U G G U C U G G G U G U C G A U G A U U U C U U G G C C U A U A U C G G U U U G A U U C A U U G C A G C C A A U U C A G C G G A A G C U A A A A U C C C A A A A C A U G C C A C G U G G A A U U A U U G G G U C G C U U C A U U G C U G U U G U U C U A U U G C A G C A G U A A C C U U G G U A C U U G U A G G A U G C A U C C U U A C U C A G C C U A U G C A G G A A A U G C A G C G C C A G U U G G U U G G C C C U U C A A U C A G G U U A U U C U G U U U U A U C A G A A G U U G U C C A G C G A U G C A U G G A C U G G A U U C A A G C A A A A A C U U U A U U C C G C A A U G C C A A A A \colorbox{red}{U A A} G G C C U
 
 
+\vspace*{1em}
+Using provided sequence and some online bioinformatics tools try to find answers for the following questions:
+
+\subsection*{Using a nucleotide translation tool, (e.g. http://web.expasy.org/translate/ ) determine in which frame (1,2 or 3) and which direction (5' to 3' or 3' to 5') is this mRNA transcript given?}
+When inserted into the web-side, the mRNA sequence is translated into a nucleotide (DNA/RNA) sequence. The sequence is translated into a protein sequence, and the frame and direction is given. 
+
+The most likely frame and direction is 5' to 3' in frame 2, which is marked most in red and illustrates the most open reading frame.
+
+\subsection*{Underline the start codon and the stop codon on the sequence.}
+The start- and stop codon has been marked in the sequence above. 
+
+The start codon is the first AUG codon in the sequence (highlighted in green). The stop codon is the las UAA, UAG or UGA codon (highlighted in red). The fastest way to find this is by searching with ctrl+F in the word document. 
+
+\section{18.09.24 - Exercise 1 - NCBI BLAST}
+This part of the exercise will take you through some uses of the NCBI BLAST homepage. The NCBI stands for National Center for Biotechnology Information and composes of multiple databases relevant in biotechnology. It was founded in 1988 and since that time is constantly growing. The DNA and protein databases are immense however they may contain unverified and unreliable information. Therefore it is important to carefully interpret results.
+
+\subsection*{Go to the NCBI BLAST homepage http://blast.ncbi.nlm.nih.govBlast.cgi}
+-Use the sequence bellow to explain differences between blastn, blastp and blastx
+
+AATAGGGATGGGATTTATGAGAAAAGCCGATTTTGAGCTTTATCGTGATGCAGATAAACATTATAATCAGGTACTAACCAC
 
 
+The blastn and blastp were not able to find any hits, only error codes came. The blastx was able to find various hits. The reason for this is that the blastn is used for nucleotide sequences, blastp is used for protein sequences and blastx is used for translated nucleotide sequences. The blastx is therefore able to find hits since it translates the nucleotide sequence into a protein sequence.
 
+\subsection*{Copy paste the fasta sequence below, seq1 (16S rRNA\_F18\_Gergoush), and choose the relevant BLAST tool. Do the blast using default settings.}
+>seq1 (16S rRNA\_F18\_Gergoush)
+
+\begin{verbatim}
+    AGATGGGAGCTTGCTCCCTGATGTTAGCGGCGGACGGGTGAGTAACACGTGGGTAACCTGCCTGTAAGAC
+    TGGGATAACTCCGGGAAACCGGGGCTAATACCGGATGGTTGTTTGAACCGCATGGTTCAAACATAAAAGG
+    TGGCTTCGGCTACCACTTACAGATGGACCCGCGGCGCATTAGCTAGTTGGTGAGGTAACGGCTCACCAAG
+    GCAACGATGCGTAGCCGACCTGAGAGGGTGATCGGCCACACTGGGACTGAGACACGGCCCAGCACTCCTA
+    CGGGAGGCAGCAGTAGGGAATCTTCCGCAATGGACGAAAGTCTGACGGAGCAACGCCGCGTGAGTGATGA
+    AGGTTTTCGGATCGTAAAGCTCTGTTGTTAGGGAAGAACAAGTACCGTTCGAATAGGGCGGTACCTTGAC
+    GGTACCTAACCAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTG
+    TCCGGAATTATTGGGCGTAAAGGGCTCGCAGGCGGTTTCTTAAGTCTGATGTGAAAGCCCCCGGCTCAAC
+    CGGGGAGGGTCATTGGAAACTGGGGAACTTGAGTGCAGAAGAGGAGAGTGGAATTCCACGTGTAGCGGTG
+    AAATGCGTAGAGATGTGGAGGAACACCAGTGTCGAAGGCGACTCTCTGGTCTGTAACTGACGCTGAGGAG
+    CGAAAGCGTGGGGAGCGAACAGGATTAGATACCCTGGTAGTCCACGCCGTAAACGATGAGTGCTAAGTGT
+    TAGGGGGTTTCCGCCCCTTAGTGCTGCAGCTAACGCATTAAGCACTCCGCCTGGGGAGTACGGTCGCAAG
+    ACTGAAACTCAAAGGAATTGACGGGGGCCCGCACAAGCGGTGGAGCATGTGGTTTAATTCGAAGCAACGC
+    GAAGAACCTTACCAGGTCTTGACATCCTCTGACAATCCTAGAGATAGGACGTCCCCTTCGGGGGCAGAGT
+    GACAGGTGGTGCATGGTTGTCGTCAGCTCGTGTCGTGAGATGTTGGGTTAAGTCCCGCAACGAGCGCAAC
+    CCTTGATCTTAGTTGCCAGCATTCAGTTGGGCACTCTAAGGTGACTGCCGGTGACAAACCGGAGGAAGGT
+    GGGGATGACGTCAAATCATCATGCCCCTTATGACCTGGGCTACACACGTGCTACAATGGACAGAACAAAG
+    GGCAGCGAAACCGCGAGGTTAAGCCAATCCCACAAATCTGTTCTCAGTTCGGATCGCAGTCTGCAACTCG
+    ACTGCGTGAAGCTGGAATCGCTAGTAATCGCGGATCAGCATGCCGCGGTGAATACGTTCCCGGGCCTTGT
+    ACACACCGCCCGTCACACCACGAGAGTTTGTAACACCCGAAGTCGGTGAGGTAACCTTTTAGGAGCCAGC
+    CGCCGAAGG    
+\end{verbatim}
+
+Again, the blastn and blastp were not able to find any hits, only error codes came. The blastx was again able to find various hits. 
+
+\subsubsection*{When you get the result discuss with your group: How is the identification result presented, what information do you get?}
+The information given from the blast is, description, scientific name, max score, total score, query cover, e value, per. identified, accesion length and accesion number.
+
+The description gives a brief summary of the hit, the scientific name gives the name of the organism, the max score reflects the highest alignment score of the hit, the total score is the cumulative score of the hit, the query cover is the percentage of the query that is covered by the hit, the e value is the expectation value lower e values are good (e values under 0.01 are considere significant). The per. identified is the percentage of the hit that is identified, the accesion length is the length of the sequence corresponding to the accession number, and the accesion number is the number of the hit.
+
+\subsubsection*{Based on the knowledge you have on 16S rRNA gene sequence similarities what could the candidate species and subspecies be (write them down below)}
+The most likely hit would be the following strains. They are listed from most percent identified to least percent identified (ranging from 100-98.81\%).:
+\begin{itemize}
+    \item \textit{Bacillus subtilis} subsp. \textit{subtilis} BSP2\_43490
+    \item \textit{Bacillus subtilis} CDA59\_06275
+    \item \textit{Bacillus amyloliquefaciens} BN2127\_JRS5\_00115
+    \item \textit{Bacillus subtilis} subsp. \textit{subtilis} BSP2\_43510
+    \item \textit{Bacillus subtilis} subsp. \textit{subtilis} BSP2\_41070
+\end{itemize}
