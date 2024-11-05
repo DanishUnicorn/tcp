@@ -474,3 +474,74 @@ Koji fermentation enhances the digestibility of proteins and produces umami comp
 \subsubsection*{Question}
 Define culture-independent and culture-dependent techniques for microbial characterization of fermented food and describe advantages and disadvantages of the two approaches. Give 1-2 examples on how you can apply Nanopore amplicon sequencing for species identification. Discuss the advantages and disadvantages of amplicon sequencing compared to whole genome sequencing. 
 
+\subsubsection*{Answer}
+\subsubsubsection*{Culture-Independent Techniques}
+Culture-independent methods bypass the need for growing microorganisms in a lab. These techniques include high-throughput sequencing (HTS), such as 16S rRNA sequencing, which allows for the identification of bacterial species directly from environmental samples by analysing their genetic material.
+
+\textbf{Advantages}:
+\begin{itemize}
+    \item They allow for the detection of both culture-able and non-culture-able organisms, which is especially useful in complex microbial communities such as fermented foods \cite*{L3-SeqBasedClass,L5-HighThroughput}.
+    \item Faster results compared to culture-dependent methods, as they do not require incubation periods \cite*{L5-DNAEnrichment}.
+    \item Provide insights into the diversity and structure of microbial communities through sequencing techniques such as 16S rRNA sequencing \cite*{L3-SeqBasedClass}.
+\end{itemize}
+
+\textbf{Disadvantages}:
+\begin{itemize}
+    \item Does not offer functional data about the microorganisms, such as metabolic activity \cite*{L5-HighThroughput,L3-SeqBasedClass}.
+    \item Some techniques (e.g., 16S rRNA sequencing) may not resolve closely related species \cite*{L5-HighThroughput}.
+\end{itemize}
+
+\subsubsubsection*{Culture-Dependent Techniques}
+Culture-dependent methods involve the isolation and cultivation of microorganisms on specific media before further testing. These methods are essential for obtaining live cultures for functional and strain-level analyses.
+
+\textbf{Advantages}:
+\begin{itemize}
+    \item Allow for more detailed studies of bacterial phenotypes and strain-specific characteristics, especially when combined with techniques such as multilocus sequence typing (MLST) and pulsed-field gel electrophoresis (PFGE) \cite*{L5-DNAEnrichment}
+    \item Enable researchers to conduct functional assays, such as antibiotic resistance testing or metabolic profiling, on live cultures \cite*{L3-SeqBasedClass}.
+\end{itemize}
+
+\textbf{Disadvantages}:
+\begin{itemize}
+    \item Limited to organisms that can grow under specific lab conditions, excluding non-culture-able organisms \cite*{L5-HighThroughput}.
+    \item Time-consuming and labor-intensive, as it requires the incubation of individual colonies on culture-specific media \cite*{L5-DNAEnrichment}.
+\end{itemize}
+
+\subsubsubsection*{Nanopore Amplicon Sequencing for Species Identification}
+Nanopore amplicon sequencing is a culture-independent technique which provides real time sequencing of long DNA fragments. Moreover, Nanopore allows the user to identify species and strains without the need for fluorescence chemistry. 
+Nanopores are small holes created by proteins. The Nanopore sequencing principles is detection by the generated current of the nucleotide which passes through the Nanopore. The changes in the current are characteristic of a particular nucleotide base \cite*{LS10,L3-SeqBasedClass}.
+
+\textbf{Examples of Applications}:
+\begin{itemize}
+    \item Nanopore sequencing can be applied for the identification of \textit{Salmonella enterica} at the strain level using repetitive extragenic palindromic PCR (Rep-PCR) coupled with ON-rep-seq \cite*{L5-DNAEnrichment}.
+    \item Nanopore sequencing can also be applied to rapidly sequence the 16S rRNA gene from mixed microbial samples, allowing species identification in fermented food samples \cite*{L3-SeqBasedClass}.
+\end{itemize}
+
+
+\subsubsubsection*{Amplicon Sequencing vs. Whole Genome Sequencing}
+\textbf{Advantages of Amplicon Sequencing}:
+
+\begin{itemize}
+    \item Long-read sequencing allows for the identification of full-length 16S rRNA gene sequences, providing more accurate species identification compared to short-read sequencing \cite*{LS10}.
+    \item Fast runtime allows for multiple runs in a short amount of time \cite*{LS10}.
+\end{itemize}
+
+\textbf{Disadvantages}:
+\begin{itemize}
+    \item Higher error rates (38\% in 2015, 5\% in 2016) compared to short-read sequencing technologies like Illumina (1\%) \cite*{LS10}.
+    \item Limited to specific genomic regions, making it less informative for strain-level differentiation and functional genomics compared to whole-genome sequencing \cite*{L5-DNAEnrichment}.
+\end{itemize}
+
+\textbf{Advantages of Whole Genome Sequencing}:
+\begin{itemize}
+    \item Provides comprehensive genomic information, including strain-level differences, gene content, and functional pathways \cite*{L5-DNAEnrichment}.
+\end{itemize}
+
+\textbf{Disadvantages of Whole Genome Sequencing}:
+\begin{itemize}
+    \item More expensive and computationally demanding than amplicon sequencing \cite*{L5-DNAEnrichment,L3-SeqBasedClass}.
+\end{itemize}
+
+
+
+
+
