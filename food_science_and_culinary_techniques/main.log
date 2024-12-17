@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.4)  17 DEC 2024 20:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.4)  17 DEC 2024 20:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1642,7 +1642,7 @@ Underfull \hbox (badness 2961) in paragraph at lines 40--40
 []|\T1/pplx/m/n/10 Fleshy or dry struc-tures, Con-tain
  []
 
-<figures/L01_hemicelluloses.png, id=255, 902.37125pt x 351.3125pt>
+<figures/L01_hemicelluloses.png, id=256, 902.37125pt x 351.3125pt>
 File: figures/L01_hemicelluloses.png Graphic file (type png)
 <use figures/L01_hemicelluloses.png>
 Package pdftex.def Info: figures/L01_hemicelluloses.png  used on input line 66.
@@ -1652,7 +1652,7 @@ Package pdftex.def Info: figures/L01_hemicelluloses.png  used on input line 66.
 [9
 
 ]
-<figures/L01_propectin.png, id=264, 822.07124pt x 339.2675pt>
+<figures/L01_propectin.png, id=265, 822.07124pt x 339.2675pt>
 File: figures/L01_propectin.png Graphic file (type png)
 <use figures/L01_propectin.png>
 Package pdftex.def Info: figures/L01_propectin.png  used on input line 93.
@@ -1666,7 +1666,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [10]
 
 [11 <./Figures/L01_hemicelluloses.png> <./Figures/L01_propectin.png>]
-<figures/L02_anomeric_carbon.png, id=279, 709.65125pt x 325.215pt>
+<figures/L02_anomeric_carbon.png, id=280, 709.65125pt x 325.215pt>
 File: figures/L02_anomeric_carbon.png Graphic file (type png)
 <use figures/L02_anomeric_carbon.png>
 Package pdftex.def Info: figures/L02_anomeric_carbon.png  used on input line 147.
@@ -1729,10 +1729,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  89i,15n,98p,1316b,1173s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/nimbus15/zhv-Bol.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/nimbus15/zhv-Reg.pfb>
-Output written on main.pdf (21 pages, 1024155 bytes).
+Output written on main.pdf (21 pages, 1024449 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
+ 379 PDF objects out of 1000 (max. 8388607)
+ 315 compressed objects within 4 object streams
  62 named destinations out of 1000 (max. 500000)
  277 words of extra memory for PDF output out of 10000 (max. 10000000)
 

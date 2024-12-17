@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1734463728.18661 "main.bcf" "main.bbl" "main" 1734463824.01738 0
-  "main.bcf" 1734463823 110064 96165e65f6df8107f446308e0fb39e8b "pdflatex"
+["biber main"] 1734464090.92886 "main.bcf" "main.bbl" "main" 1734464099.03363 0
+  "main.bcf" 1734464098 110126 089d683ae91d64eed29e9ad31a94ef44 "pdflatex"
   "references.bib" 1734460034 467 9445b6f56b21017e541964007896a478 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1734463819.03371 "c:/Users/lucas/iCloudDrive/Desktop/Folders/KU/Master/year_1/blok_2/FSCT/FSCTnotes/food_science_and_culinary_techniques/main.tex" "main.pdf" "main" 1734463824.01897 0
+["pdflatex"] 1734464094.07698 "c:/Users/lucas/iCloudDrive/Desktop/Folders/KU/Master/year_1/blok_2/FSCT/FSCTnotes/food_science_and_culinary_techniques/main.tex" "main.pdf" "main" 1734464099.03498 0
   "Figures/L01_hemicelluloses.png" 1732006443 342762 1e75ba463e26e4a5545bf053092a0d1f ""
   "Figures/L01_propectin.png" 1732006742 287831 6be01de1e3a3ba06a0ccf8bbc6f7e11b ""
   "Figures/L02_anomeric_carbon.png" 1732193919 160956 a5d7bebb2debf4e352cbfafddd321d4a ""
@@ -15,7 +15,7 @@
   "KU_titelpage/logos/science-english.pdf" 1711387664 71141 c04dc46be178488c9868ffcb30006256 ""
   "TexFiles/appendix.tex" 1731020915 192 9fa32ef6c227ebdbdbd07b5bff8a26ac ""
   "TexFiles/chapter1.tex" 1731062449 8222 6c93f51b4dc6f9dba09894e82153f4e1 ""
-  "TexFiles/chapter2.tex" 1734463722 9985 470b6fae9cf664c752f5e3ac1a6724b4 ""
+  "TexFiles/chapter2.tex" 1734464084 10305 1fc5a6a8127c600bce7e34819433a571 ""
   "TexFiles/chapter3.tex" 1734463818 8228 2d51b749cec90aca47436d14a51a78f9 ""
   "TexFiles/chapter4.tex" 1732012151 2566 e722c7294c71f3b04d2e4404c69d1155 ""
   "TexFiles/chapter5.tex" 1731860125 1066 8ff101636a8dd51565c1e2625ad09e68 ""
@@ -320,12 +320,12 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1725486235 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1725486511 8239381 ef9a94c925cc98b25efb040a05990681 ""
   "c:/texlive/2024/texmf.cnf" 1725486208 713 614551405fc44b98efbf516466e3c909 ""
-  "main.aux" 1734463823 8759 6d1db1afb9798f910192b08f136c19a3 "pdflatex"
-  "main.bbl" 1734463731 3367 83043ae38c038b2b8db7c5f185965d86 "biber main"
-  "main.out" 1734463823 4144 252a56000b3a98610763b8f3b24390a7 "pdflatex"
-  "main.run.xml" 1734463823 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
+  "main.aux" 1734464098 8812 65c5345d3f2ff2c8e448a6c50efab82a "pdflatex"
+  "main.bbl" 1734464093 3367 83043ae38c038b2b8db7c5f185965d86 "biber main"
+  "main.out" 1734464098 4144 252a56000b3a98610763b8f3b24390a7 "pdflatex"
+  "main.run.xml" 1734464098 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
   "main.tex" 1731939383 1048 e31bdd433f43b2302229702a4e892356 ""
-  "main.toc" 1734463823 2218 d793c1d80ce53ce6105f90d6ef6f1832 "pdflatex"
+  "main.toc" 1734464098 2218 d793c1d80ce53ce6105f90d6ef6f1832 "pdflatex"
   "preamble.tex" 1731022457 12215 b5240691902acec24df42de80420070c ""
   (generated)
   "main.aux"
