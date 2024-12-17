@@ -1,0 +1,12 @@
+# LaTeX auxiliary and temporary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.xml
+*.synctex.gz
+*.toc
