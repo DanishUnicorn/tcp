@@ -14,7 +14,7 @@
         {
             "label": "Clean LaTeX Auxiliary Files",
             "type": "shell",
-            "command": "latexmk -c main.tex",
+            "command": "latexmk -c main.tex && rm -f *.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.log *.out *.synctex.gz *.xml *.toc *.pdf",
             "problemMatcher": []
         },
         {
