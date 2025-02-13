@@ -1,6 +1,6 @@
-NFOK13004U - Food Science and Culinary Techniques Course Notes 
-- Welcome to the NFOK13004U Course Notes repository! 
-This repository is created for students enrolled in the NFOK13004U course at the University of Copenhagen, covering the period from November 2024 to January 2025.
+NFOK17001U - Food Processing Course Notes 
+- Welcome to the NFOK17001U Course Notes repository! 
+This repository is created for students enrolled in the NFOK17001U course at the University of Copenhagen, covering the period from February 2025 to April 2025.
 
 Overview 
 - This repository contains notes and materials relevant to the course. It is intended as a resource for students to enhance their learning experience.
