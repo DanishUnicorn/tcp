@@ -22,7 +22,9 @@ d_inner = 0.05  # Inner diameter of the pipe in meters
 T_water_exit = symbols("T_water_exit")
 
 
+"""
 # 1) Calculate the exit temperature of water.
+"""
 # To do this, we will use the following equation: q = m_dot * c_p * (T_food_inlet - T_food_exit) = m_dot * c_p * (T_water_exit - T_water_inlet)
 
 # Where:
@@ -45,7 +47,9 @@ eq_01 = Eq(m_dot_food * c_p_food * (T_food_exit - T_food_inlet), m_dot_water * c
 solution = solve(eq_01, T_water_exit)
 print(f"T_water_exit =", solution[0], "°C")
 
+"""
 # 2) Calculate log-mean temperature difference.
+"""
 # The log-mean temperature difference (LMTD) is calculated using the formula:
 # LMTD = (Delta_T1 - Delta_T2) / ln(Delta_T1 / Delta_T2)
 
@@ -58,8 +62,20 @@ LM_Delta_T = (Delta_T1 - Delta_T2) / (log(Delta_T1 / Delta_T2))
 
 print(f"Log-mean temperature difference: {LM_Delta_T:.2f} °C")
 
-# 3) If the average overall heat transfer coefficient is 2000 W/(m² °C) and the diameter of the inner pipe is 5 cm, calculate the length of the heat exchanger.
+"""
+# 3) If the average overall heat transfer coefficient (U) is 2000 W/(m² °C) and the diameter of the inner pipe is 5 cm, calculate the length of the heat exchanger.
+"""
+# To calculate this we will use the following formula:
+# q = U * A * LM_Delta_T = U * pi * d_inner * L * LM_Delta_T
 
+# Where:
+# q = heat transfer rate (kW) = 80 kW
+# U = average overall heat transfer coefficient (W/(m² °C)) = 2000 W/(m² °C)
+# A = heat transfer area (m²) = pi * d_inner * L
+# d_inner = inner diameter of the pipe (m) = 0.05 m
+# L = length of the heat exchanger (m) = ?
+
+L = solution[1] = 
 
 # 4) Repeat these calculations for parallel-flow configuration.
 #Du bytter om på Delta T1 og Delta T2
