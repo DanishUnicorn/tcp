@@ -88,6 +88,8 @@ vmargin = {30mm, 30mm} % Top and bottom margin
   {\normalfont\fontsize{12}{14.4}\bfseries}{\thesubsubsubsection}{1em}{}
 \titlespacing*{\subsubsubsection}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\setcounter{secnumdepth}{4} % Allow numbering up to \subsubsubsection
+\setcounter{tocdepth}{4}   % Include \subsubsubsection in the table of contents
 
 \renewcommand{\cfttoctitlefont}{\huge\bfseries\fontencoding{T1}\rmfamily\selectfont} % Set TOC title font
   
@@ -128,6 +130,10 @@ vmargin = {30mm, 30mm} % Top and bottom margin
 \addbibresource{references.bib}
 \setcounter{tocdepth}{3}
 
+\makeatletter % Add subsubsubsection to TOC
+\newcommand{\l@subsubsubsection}{\@dottedtocline{4}{7em}{4em}}
+\makeatother % Add subsubsubsection to TOC
+
 \hypersetup{ % Set hyperref link colors
     colorlinks,
     citecolor=black,  
@@ -139,6 +145,18 @@ vmargin = {30mm, 30mm} % Top and bottom margin
 \urlstyle{same} % Set the URL-font to the same as the rest of the document
 
 \renewcommand*{\bibfont}{\fontfamily{ptm}\selectfont} % Ensure bibliography is in Times New Roman
+
+\setcounter{secnumdepth}{4} % Allow numbering up to \subsubsubsection
+\setcounter{tocdepth}{4}   % Include \subsubsubsection in the table of contents
+
+\hypersetup{ % Set hyperref link colors and bookmark depth
+    colorlinks,
+    citecolor=black,  
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue,
+    bookmarksdepth=4 % Ensure bookmarks include \subsubsubsection
+}
 
 % MATH MODE PACKAGES  ---------------------------------------
 \usepackage{amsmath} % For math stuff

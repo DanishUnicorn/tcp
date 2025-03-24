@@ -12,6 +12,9 @@
 \input{TexFiles/frontpage.tex} % Insert frontpage file.
 
 \pagenumbering{gobble} % Turn off page numbering
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}} % Temporarily disable TOC entries
+\input{TexFiles/chapter_01.tex}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{4}} % Re-enable TOC entries
 \tableofcontents
 \clearpage % ends the page, to ensure page numbering starts on the next page where the main text begins
 
@@ -22,14 +25,15 @@
 
 \pagenumbering{arabic} % Turn on page numbering
 
-% Manually set chapter number and customize section numbering
-\setcounter{chapter}{1}
+\setcounter{chapter}{0} % Set chapter number to 1
 \renewcommand{\thesection}{\arabic{section}} % Customize section numbering to be just "1", "2", etc.
-
-\input{TexFiles/chapter_01.tex}
+\input{TexFiles/chapter_02.tex}
 
 
 \printbibliography
 
+% \begin{appendices}
+%     \input{TexFiles/appendix.tex}
+% \end{appendices}
 
 \end{document}
