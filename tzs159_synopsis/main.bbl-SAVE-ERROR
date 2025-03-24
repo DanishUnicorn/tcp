@@ -1,0 +1,186 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{03_article}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=8938237fc4320f1bfbff7cd88ca9db60}{%
+           family={Aiello},
+           familyi={A\bibinitperiod},
+           given={Gilda},
+           giveni={G\bibinitperiod}}}%
+        {{hash=691da553f9c2d3063c21ec49d709b60b}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yuchen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e5eb797e9f56a308098db1052302ec08}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Ruoxian},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2e098b4dc0268a411101b939a328a46d}{%
+           family={Boschin},
+           familyi={B\bibinitperiod},
+           given={Giovanna},
+           giveni={G\bibinitperiod}}}%
+        {{hash=17dd0edb1e99d7d62b780d4df7a20005}{%
+           family={Juodeikiene},
+           familyi={J\bibinitperiod},
+           given={Grazina},
+           giveni={G\bibinitperiod}}}%
+        {{hash=8a4b0250a0487737fe7947739a0ece1d}{%
+           family={Arnoldi},
+           familyi={A\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{d1766e09c9d30332c60a76d10bcbd9cb}
+      \strng{fullhash}{12b4cffd492882375edebb1820c8b9fc}
+      \strng{fullhashraw}{12b4cffd492882375edebb1820c8b9fc}
+      \strng{bibnamehash}{d1766e09c9d30332c60a76d10bcbd9cb}
+      \strng{authorbibnamehash}{d1766e09c9d30332c60a76d10bcbd9cb}
+      \strng{authornamehash}{d1766e09c9d30332c60a76d10bcbd9cb}
+      \strng{authorfullhash}{12b4cffd492882375edebb1820c8b9fc}
+      \strng{authorfullhashraw}{12b4cffd492882375edebb1820c8b9fc}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Foods}
+      \field{number}{11}
+      \field{title}{Composition of the protein ingredients from insoluble oat byproducts treated with food-grade enzymes, such as amylase, cellulose/xylanase, and protease}
+      \field{volume}{10}
+      \field{year}{2021}
+      \field{pages}{2695}
+      \range{pages}{1}
+    \endentry
+    \entry{02_article}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=ef3ebf57c2dda94da7a1b51235444842}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Aili},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e15e408ce2de35347165692ea5dc818c}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Yeyuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=91356d7c24e58b6d6f4dc2568d355c1f}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={Liang},
+           giveni={L\bibinitperiod}}}%
+        {{hash=85db932bba6383355f0280a553e2f7c2}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Gang},
+           giveni={G\bibinitperiod}}}%
+        {{hash=bb371597af3d6d97a656e6f879c0189d}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{75c56ce2867fd7f4d1d61cf9bb844be9}
+      \strng{fullhash}{a8881c474f57c2c59d396022b306021a}
+      \strng{fullhashraw}{a8881c474f57c2c59d396022b306021a}
+      \strng{bibnamehash}{75c56ce2867fd7f4d1d61cf9bb844be9}
+      \strng{authorbibnamehash}{75c56ce2867fd7f4d1d61cf9bb844be9}
+      \strng{authornamehash}{75c56ce2867fd7f4d1d61cf9bb844be9}
+      \strng{authorfullhash}{a8881c474f57c2c59d396022b306021a}
+      \strng{authorfullhashraw}{a8881c474f57c2c59d396022b306021a}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Lwt}
+      \field{title}{Development of protein-enriched biscuit based on oat-milk byproduct fortified with chickpea flour}
+      \field{volume}{177}
+      \field{year}{2023}
+      \field{pages}{114594}
+      \range{pages}{1}
+    \endentry
+    \entry{01_article}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=5c8957a019e7495856f7ba75ef10ae65}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Yonghui},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=43a1faa53ecbea3197cf569fb57a4ea2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xinping},
+           giveni={X\bibinitperiod}}}%
+        {{hash=540350aae3ceea82f9e8156191ff98f8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jingjie},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9974d6382df9a9870c97dad6837bcf62}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xiao},
+           giveni={X\bibinitperiod}}}%
+        {{hash=49a19e08791a3dc09c932ff975949361}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=48021ba206bec510c019f8f59952abb3}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Baoguo},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{1e2e61c02df39348ca70b2a58904a45b}
+      \strng{fullhash}{36e4f3013ec70aa55006656299516b95}
+      \strng{fullhashraw}{36e4f3013ec70aa55006656299516b95}
+      \strng{bibnamehash}{1e2e61c02df39348ca70b2a58904a45b}
+      \strng{authorbibnamehash}{1e2e61c02df39348ca70b2a58904a45b}
+      \strng{authornamehash}{1e2e61c02df39348ca70b2a58904a45b}
+      \strng{authorfullhash}{36e4f3013ec70aa55006656299516b95}
+      \strng{authorfullhashraw}{36e4f3013ec70aa55006656299516b95}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Food chemistry: X}
+      \field{title}{Oat milk analogue versus traditional milk: Comprehensive evaluation of scientific evidence for processing techniques and health effects}
+      \field{volume}{19}
+      \field{year}{2023}
+      \field{pages}{100859}
+      \range{pages}{1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

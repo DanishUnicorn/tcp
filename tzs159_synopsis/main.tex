@@ -18,24 +18,18 @@
 \pagestyle{fancy}
 \fancyfoot{} % Clear footer
 \fancyhead[R]{\sffamily\thepage} % Set page number in header
-\fancyhead[L]{{\bfseries\sffamily Chapter \theHchapter \, |} \quad {\transparent{0.6}\sffamily\rightmark}} % Set chapter name in header
+\fancyhead[L]{{\bfseries\sffamily Chapter \thechapter \, |} \quad {\transparent{0.6}\sffamily\rightmark}} % Set chapter name in header
 
 \pagenumbering{arabic} % Turn on page numbering
+
+% Manually set chapter number and customize section numbering
+\setcounter{chapter}{1}
+\renewcommand{\thesection}{\arabic{section}} % Customize section numbering to be just "1", "2", etc.
+
 \input{TexFiles/chapter_01.tex}
-\input{TexFiles/chapter_02.tex}
-\input{TexFiles/chapter_03.tex}
-\input{TexFiles/chapter_04.tex}  
-\input{TexFiles/chapter_05.tex}
-\input{TexFiles/chapter_06.tex}
 
 
 \printbibliography
-
-\begin{appendices}
-
-    \input{TexFiles/appendix.tex}
-
-\end{appendices}
 
 
 \end{document}
