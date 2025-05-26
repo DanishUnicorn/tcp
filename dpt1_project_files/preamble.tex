@@ -38,7 +38,7 @@ vmargin = {30mm, 30mm} % Top and bottom margin
 \fancyhf{} % Clear all header and footer fields
 
 % Set header font to Times New Roman
-\fancyhead[L]{\fontfamily{ptm}\selectfont Chapter \thechapter} % Left header
+\fancyhead[L]{\ifnum\value{chapter}>0\fontfamily{ptm}\selectfont Chapter \thechapter\fi} % Left header
 \fancyhead[R]{\fontfamily{ptm}\selectfont \rightmark} % Right header
 
 % Set footer
