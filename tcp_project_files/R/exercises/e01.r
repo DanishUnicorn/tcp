@@ -14,8 +14,31 @@ if (!dir.exists(fig_dir)) dir.create(fig_dir)
 # Remember to format the exercise data to fit the code (column names, format etc.)
 
 
+# --- Package & Git Repo installation ---
+# If the following has not been installed yet, please ensure to install it before running the code. Otherwise, you can skip this part.
+
+# install.packages("dplyr")
+# install.packages("ggplot2")
+# install.packages("devtools")
+# library(devtools)
+# install_github("DoseResponse/drcData", dependencies = TRUE, force =TRUE)
+# install_github("DoseResponse/drc", dependencies = TRUE, force =TRUE)
+# install_github("DoseResponse/bmd", dependencies = TRUE, force =TRUE)
+
+
 # --- Load libraries ---
+library(drc)
+library(bmd)
 library(dplyr)
 library(ggplot2)
-library(devtools)
+
+
+# Reading the dataset from R/data/
+
+m <- read.csv("R/data/PE2_germination_data_exercise.csv")   # European CSVs → use read.csv2()
+
+head(m)
+tail(m)
+
+
 
