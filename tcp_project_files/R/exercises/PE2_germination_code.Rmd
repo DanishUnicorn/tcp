@@ -108,7 +108,7 @@ we fit the other two possible models:
 
 ```{r}
 model_W1<-drm(obs~start+end,type="event", fct=W1.3(),data= m, curveid = treatment, separate = TRUE)    #CLUE change the number of parameters here (W1.4(), W1.3(), W1.2())
-model_W2<-drm(obs~start+end,type="event", fct=W2.3(),data= m, curveid = treatment, separate = TRUE)    #CLUE change the number of parameters here (W2.4(), W2.3(), W2.2())
+model_W2<-drm(obs~start+end,type="event", fct=W2.3(),data = m, curveid = treatment, separate = TRUE)    #CLUE change the number of parameters here (W2.4(), W2.3(), W2.2())
 
 ```
 
@@ -207,7 +207,7 @@ To add the confidence bands around the curves to be able to compare them we add:
 qplotDrc(best_model, type="confidence", col=TRUE,
      xlab="Days from experimental start", ylab="Fraction of germinated seeds") +
     ggtitle("Soy beans germinated at five temperatures")+
-    labs(fill = "Temperature", col = "Temperature") 
+    labs(fill = "Temperature [degC]", col = "Temperature [degC]") 
 ```
 
 ##effective dose 50
