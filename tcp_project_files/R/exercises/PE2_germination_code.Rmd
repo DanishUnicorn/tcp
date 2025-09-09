@@ -1,0 +1,218 @@
+---
+title: "Soy Beans"
+author: "Heba+Valentine"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+This code is used for the lecture and the exercise.
+
+For the exercise you might need to change the number of parameters and the best model to use for plotting. Look for the #CLUES
+Remember to format the exercise data to fit the code (column names, format etc.)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+To install the needed packages if it is not already installed
+This need to be run only the first time you use this package
+```{r}
+# install.packages("dplyr")
+# install.packages("ggplot2")
+# install.packages("devtools")
+# library(devtools)
+#install_github(“DoseResponse/drcData”, dependencies = TRUE, force =TRUE)
+#install_github(“DoseResponse/drc”, dependencies = TRUE, force =TRUE)
+#install_github(“DoseResponse/bmd”, dependencies = TRUE, force =TRUE)
+```
+
+To load all the packages needed for this code
+this should be loaded each time you open R to run this code
+```{r}
+library(drc)
+library(bmd)
+library(dplyr)
+library(ggplot2)
+```
+
+Reading the data set: the file is called "PE2_germination_data.csv"
+Note: if the numbers are:
+  - in the american system use "read.csv(file.choose())"
+  - in the european system use "read.csv2(file.choose())"
+
+```{r}
+m <- read.csv(file.choose())
+head(m)
+tail(m)
+```
+--> do I get separate columns?
+--> are the classes correct?
+
+
+#exploratory graphs
+We plot the raw data to get an idea of what the data looks like
+```{r}
+#calculating cumulative observations
+m_cumu <- m %>%                                   #we create a new dataframe with an extra column for cumulative observations
+  dplyr::group_by(experiment, rep, treatment) %>%        #cumulative observations are grouped by factors (here we have three factors, this can be adjusted for more or less factors)
+
+  dplyr::mutate(cumulative_observations = cumsum(obs))   #cumulative observations are stored in a new column
+
+head(m_cumu)
+tail(m_cumu)
+```
+--> do I get the right total number of seeds?
+
+```{r}
+#plot cumulative observations
+ggplot(m_cumu, aes(x = start, y = cumulative_observations)) +
+  geom_point()
+```
+
+
+```{r}
+#plot cumulative observations, grouped by treatment
+ggplot(m_cumu, aes(x = start, y = cumulative_observations, color = as.factor(treatment))) +
+  geom_point()+
+  ggtitle("Cumulative observations per treatment")
+```
+--> do I get the right total number of seeds?
+--> do the data look coherent? 
+
+
+#model fits
+
+##dose-response model (drm) fitting
+
+if we need to get help on the specific function that we are using we can do this:
+
+```{r}
+?drm
+getMeanFunctions()
+```
+
+To Fit the model using the drm function:
+
+
+
+```{r}
+model_LL<-drm(obs~start+end, # The formula (in terms of the variables in the data)
+               type="event", # the type of the data
+               fct=LL.3(), # the function of the model                            #CLUE change the number of parameters here (LL.4(), LL.3(), LL.2())
+               data= m, # specifying the name of the data set
+               curveid = treatment, # the curve identifier (grouping variable)
+               separate = TRUE) # to fit every treatment independently
+```
+
+we fit the other two possible models:
+
+```{r}
+model_W1<-drm(obs~start+end,type="event", fct=W1.3(),data= m, curveid = treatment, separate = TRUE)    #CLUE change the number of parameters here (W1.4(), W1.3(), W1.2())
+model_W2<-drm(obs~start+end,type="event", fct=W2.3(),data= m, curveid = treatment, separate = TRUE)    #CLUE change the number of parameters here (W2.4(), W2.3(), W2.2())
+
+```
+
+##model selection
+
+We select the best model fit per treatment using Akaike's Information Criterion: 
+the smaller the AIC, the better the fit.
+```{r}
+?AIC()
+```
+
+For each treatment and each model we calculate the AIC
+```{r}
+aic_df_LL <- data.frame(
+  Treatment = names(lapply(model_LL$objList, function(x) AIC(x))),
+  AIC_LL = unlist(lapply(model_LL$objList, function(x) AIC(x)))
+)
+
+aic_df_W1 <- data.frame(
+  Treatment = names(lapply(model_W1$objList, function(x) AIC(x))),
+  AIC_W1 = unlist(lapply(model_W1$objList, function(x) AIC(x)))
+)
+
+aic_df_W2 <- data.frame(
+  Treatment = names(lapply(model_W2$objList, function(x) AIC(x))),
+  AIC_W2 = unlist(lapply(model_W2$objList, function(x) AIC(x)))
+)
+```
+
+We combine all AICs in one dataframe to ease comparison 
+```{r}
+AIC_df <- data.frame(
+  Treatment = names(lapply(model_LL$objList, function(x) AIC(x))),
+  AIC_LL = unlist(lapply(model_LL$objList, function(x) AIC(x))),
+  AIC_W1 = unlist(lapply(model_W1$objList, function(x) AIC(x))),
+  AIC_W2 = unlist(lapply(model_W2$objList, function(x) AIC(x)))
+)
+AIC_df$MinAIC <- 
+  apply(AIC_df[, 2:4], 1, function(x) {colnames(AIC_df)[2:4][which.min(x)]}) #we create a column that displays the name of the model with the lowest AIC
+
+rownames(AIC_df) <- NULL
+
+print(AIC_df)
+```
+
+--> since the minimum AIC across all the treatments is for W1, this is the model that we are going to continue the analysis with
+
+```{r}
+best_model <- model_W1 #CLUE change the best model here (model_LL, model_W1, model_W2)
+```
+
+
+#treatment comparison
+  
+##parameters
+```{r another solution}
+plot(best_model, log="", ylim=c(0,1), xlim=c(0,12), col=TRUE,lwd ="2",  
+     legendPos=c(2, 1.0), legendText = c("21 °C","15 °C", "5 °C","2.5 °C"),
+     xlab="Days from experimental start", ylab="Fraction of germinated seeds",
+     main= "Soy beans germinated at five temperatures")
+```
+
+
+```{r main solution}
+qplotDrc(best_model, 
+         col=TRUE,
+     xlab="Days from experimental start", ylab="Fraction of germinated seeds") +
+    ggtitle("Soy beans germinated at five temperatures")+
+    labs(col = "Temperature")
+```
+
+##confidence intervals
+```{r }
+best_model$objList                  #parameters for each treatment 
+lapply(best_model$objList, confint) #confidence interval for each parameter for each treatment 
+```
+for treatment 21
+
+the coefficients' estimates are b:(Intercept)  d:(Intercept)  e:(Intercept)  
+                           -2.5833         0.9229         4.0139 
+so, the upper limit (d) is 0.9229
+the inflection point (e) is 4.0139
+the slope at the inflection point (b) is -2.5833
+
+and the confidence interval 2.5 %  is the lower limit and 97.5 % is the upper limit of a 95% confidence interval for the mentioned estimate.
+
+
+
+
+
+
+
+To add the confidence bands around the curves to be able to compare them we add: type="confidence"
+
+```{r}
+qplotDrc(best_model, type="confidence", col=TRUE,
+     xlab="Days from experimental start", ylab="Fraction of germinated seeds") +
+    ggtitle("Soy beans germinated at five temperatures")+
+    labs(fill = "Temperature", col = "Temperature") 
+```
+
+##effective dose 50
+```{r ED50}
+lapply(best_model$objList, function(x) ED(x, 50, display=FALSE))
+```
+
+
