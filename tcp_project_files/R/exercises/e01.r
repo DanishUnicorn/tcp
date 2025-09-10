@@ -192,13 +192,48 @@ cat("\n\nOverall best model by total AIC:", overall_best, "\n")
 print(totals)
 overall_best <- names(which.min(totals))
 
-# --- Define the Best Model ---
-best_model <- switch(overall_best,
-                     AIC_LL = model_LL,
-                     AIC_W1 = model_W1,
-                     AIC_W2 = model_W2
-)
+cat("\n\nOverall best model by total AIC:\n", overall_best, "\n")
 
-cat("\nUsing the best model for further analysis:", overall_best, "\n")
+# --- Treatment Comparisons ---
+# Using the best model (e.g., model_LL) for treatment comparisons
+plot(
+    best_model, 
+    log     = "", 
+    col     = 1:6, 
+    lwd     = 2, 
+    xlab    = "Time (days)", 
+    ylab    = "Germination Observations",
+    xlim    = range(m$time_days, na.rm = TRUE),
+    ylim    = range(m$obs_germination, na.rm = TRUE)
+    )
+title(paste("Best Dose-Response Model Fit (", overall_best, ")", sep = ""))
+legend(
+    "topleft", 
+    legend = levels(m$treatment_id), 
+    col = 1:6, 
+    lwd = 2
+    )
 
-print(best_model)
+# Save the plot
+dev.copy(
+    png, 
+    filename = file.path(fig_dir, paste0("best_dose_response_model_fit_", 
+    overall_best, ".png")), 
+    width = 800, 
+    height = 600
+    )
+dev.off()
+cat("\nBest dose-response model fit plot saved to figures directory.\n")
+
+# Using the main solution
+qplotDrc(best_model, 
+            col=TRUE,
+            xlab="Time (days)",
+            ylab="Germination Observations",
+            labs(col="Treatment (g pel l)")) +
+    theme_classic() +
+    theme(plot.title = element_text(hjust = 0.5)) # Center the title
+# Save the plot
+ggsave(filename = file.path(fig_dir, paste0("qplot_best_dose_response_model_fit_", overall_best, ".png")), width = 8, height = 6)
+cat("\nQplot of best dose-response model fit saved to figures directory.\n")
+
