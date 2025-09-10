@@ -73,7 +73,11 @@ str(m) # Structure of the data
 
 # --- Exploratory Data Analysis (EDA) - Plots ---
 # Plot cumulative observations over time for each treatment
-ggplot(m, aes(x = time_days, y = obs_germination, color = as.factor(treatment_value_gpel_l))) +
+ggplot(
+    m, 
+    aes(x = time_days, y = obs_germination, 
+    color = as.factor(treatment_value_gpel_l))
+) +
   geom_point() +
   geom_line() +
   labs(title = "Germination Observations Over Time by Treatment",
@@ -84,7 +88,11 @@ ggplot(m, aes(x = time_days, y = obs_germination, color = as.factor(treatment_va
   theme(plot.title = element_text(hjust = 0.5)) # Center the title
 
 # Save the plot
-ggsave(filename = file.path(fig_dir, "germination_observations_over_time.png"), width = 8, height = 6)
+ggsave(
+    filename = file.path(fig_dir, "germination_observations_over_time.png"), 
+    width = 8, 
+    height = 6
+)
 cat("\nGermination observations over time plot saved to figures directory.\n")
 
 # If the plot looks good, and the data is in cumulative format, we can proceed to the next step.
@@ -120,11 +128,28 @@ print(summary(model_LL))
 
 # Plot the model fit
 cat("\nPlotting the dose-response model fit...\n")
-plot(model_LL, log = "", col = 1:6, lwd = 2, xlab = "Time (days)", ylab = "Germination Observations")
+plot(
+    model_LL, 
+    log = "", 
+    col = 1:6, 
+    lwd = 2, 
+    xlab = "Time (days)", 
+    ylab = "Germination Observations"
+)
 title("Dose-Response Model Fit (LL.3)")
-legend("topleft", legend = levels(m$treatment_id), col = 1:6, lwd = 2)
+legend(
+    "topleft", 
+    legend = levels(m$treatment_id), 
+    col = 1:6, 
+    lwd = 2
+)
 # Save the plot
-dev.copy(png, filename = file.path(fig_dir, "dose_response_model_fit_LL3.png"), width = 800, height = 600)
+dev.copy(
+    png, 
+    filename = file.path(fig_dir, "dose_response_model_fit_LL3.png"), 
+    width = 800, 
+    height = 600
+)
 dev.off()
 cat("\nDose-response model fit plot saved to figures directory.\n")
 
@@ -159,25 +184,35 @@ model_W2 <- drm(
 # Extract AIC values for each treatment and model
 aic_df_LL <- data.frame(
   Treatment = names(model_LL$objList),
-  AIC_LL    = sapply(model_LL$objList, function(f) tryCatch(AIC(f), error=function(e) NA_real_)),
+  AIC_LL    = sapply(model_LL$objList, 
+  function(f) tryCatch(AIC(f), 
+  error=function(e) NA_real_)),
   row.names = NULL
 )
 
 aic_df_W1 <- data.frame(
   Treatment = names(model_W1$objList),
-  AIC_W1    = sapply(model_W1$objList, function(f) tryCatch(AIC(f), error=function(e) NA_real_)),
+  AIC_W1    = sapply(model_W1$objList, 
+  function(f) tryCatch(AIC(f), 
+  error=function(e) NA_real_)),
   row.names = NULL
 )
 
 aic_df_W2 <- data.frame(
   Treatment = names(model_W2$objList),
-  AIC_W2    = sapply(model_W2$objList, function(f) tryCatch(AIC(f), error=function(e) NA_real_)),
+  AIC_W2    = sapply(model_W2$objList, 
+  function(f) tryCatch(AIC(f), 
+  error=function(e) NA_real_)),
   row.names = NULL
 )
 
 # Merge and pick best per treatment
-aic_all <- Reduce(function(x, y) merge(x, y, by = "Treatment", all = TRUE),
-                  list(aic_df_LL, aic_df_W1, aic_df_W2))
+aic_all <- Reduce(
+    function(x, y) merge(x, y, 
+    by = "Treatment", 
+    all = TRUE),
+    list(aic_df_LL, aic_df_W1, aic_df_W2)
+)
 
 # Winner column
 cols <- c("AIC_LL", "AIC_W1", "AIC_W2")
@@ -187,8 +222,12 @@ print(aic_all)
 
 # Choose the lowest AIC model for further analysis
     # Overall best model across treatments = lowest total AIC
-totals <- colSums(aic_all[, cols], na.rm = TRUE)
-cat("\n\nOverall best model by total AIC:", overall_best, "\n")   
+totals <- colSums(
+            aic_all[, cols], 
+            na.rm = TRUE
+)
+cat("\n\nOverall best model by total AIC:", 
+overall_best, "\n")   
 print(totals)
 overall_best <- names(which.min(totals))
 
@@ -205,14 +244,14 @@ plot(
     ylab    = "Germination Observations",
     xlim    = range(m$time_days, na.rm = TRUE),
     ylim    = range(m$obs_germination, na.rm = TRUE)
-    )
+)
 title(paste("Best Dose-Response Model Fit (", overall_best, ")", sep = ""))
 legend(
     "topleft", 
     legend = levels(m$treatment_id), 
     col = 1:6, 
     lwd = 2
-    )
+)
 
 # Save the plot
 dev.copy(
@@ -221,19 +260,28 @@ dev.copy(
     overall_best, ".png")), 
     width = 800, 
     height = 600
-    )
+)
 dev.off()
 cat("\nBest dose-response model fit plot saved to figures directory.\n")
 
 # Using the main solution
-qplotDrc(best_model, 
-            col=TRUE,
-            xlab="Time (days)",
-            ylab="Germination Observations",
-            labs(col="Treatment (g pel l)")) +
+qplotDrc(
+    best_model, 
+    col=TRUE,
+    xlab="Time (days)",
+    ylab="Germination Observations",
+    labs(col="Treatment (g pel l)")
+) +
     theme_classic() +
     theme(plot.title = element_text(hjust = 0.5)) # Center the title
+
 # Save the plot
-ggsave(filename = file.path(fig_dir, paste0("qplot_best_dose_response_model_fit_", overall_best, ".png")), width = 8, height = 6)
+ggsave(
+    filename = file.path(fig_dir, paste0("qplot_best_dose_response_model_fit_", 
+    overall_best, ".png")), 
+    width = 8, height = 6
+)
+
 cat("\nQplot of best dose-response model fit saved to figures directory.\n")
+
 
