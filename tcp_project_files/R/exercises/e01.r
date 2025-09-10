@@ -266,22 +266,38 @@ cat("\nBest dose-response model fit plot saved to figures directory.\n")
 
 # Using the main solution
 qplotDrc(
-    best_model, 
-    col=TRUE,
-    xlab="Time (days)",
-    ylab="Germination Observations",
-    labs(col="Treatment (g pel l)")
+  best_model,
+  type   = "confidence",
+  col    = TRUE,
+  xtrans = "identity",
+  xlab   = "Days from experimental start",
+  ylab   = "Cumulative germination"   # use "Fraction..." only if you scale to 0–1
 ) +
-    theme_classic() +
-    theme(plot.title = element_text(hjust = 0.5)) # Center the title
+  ggtitle("Germination at the three treatments (95% CI)") +
+  labs(fill = "Treatment (g·L⁻¹)", col = "Treatment (g·L⁻¹)") +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5))
 
-# Save the plot
-ggsave(
-    filename = file.path(fig_dir, paste0("qplot_best_dose_response_model_fit_", 
-    overall_best, ".png")), 
-    width = 8, height = 6
+ggsave(file.path(fig_dir, paste0("qplot_best_ci_", overall_best, ".png")),
+       width = 8, height = 6, dpi = 300)
+
+
+# --- Effective Dose (ED50) Estimation ---
+# Estimate ED50 for each treatment using the best model
+ed50_values <- data.frame(
+  Treatment = names(best_model$objList),
+  ED50 = vapply(
+    best_model$objList,
+    function(f) as.numeric(ED(f, 50, display = FALSE)[1]),  # pull the scalar
+    numeric(1)
+  )
 )
-
-cat("\nQplot of best dose-response model fit saved to figures directory.\n")
-
+cat("\nED50 Estimates for Each Treatment:\n")
+print(ed50_values)
+# Save ED50 values to CSV
+write.csv(
+    ed50_values, 
+    file = file.path("/Users/bruger/Desktop/Folders/KU/Master/year_2/blok_01/TCP/tcp_notes/tcp_project_files/R/data", "PE2_ed50_estimates.csv"), 
+    row.names = FALSE
+)
 
