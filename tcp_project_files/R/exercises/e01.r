@@ -105,11 +105,12 @@ m$treatment_id <- as.factor(m$treatment_id)
 
 # Fit the model
 model_LL <- drm(
-  obs_germination ~ time_days,       # response ~ predictor
-  fct     = LL.3(),                  # model function (try LL.3(), LL.4(), LL.5())
-  data    = m,                       # dataset
-  curveid = treatment_id,            # grouping variable for curves
-  separate = TRUE                    # fit each treatment independently
+  obs_germination ~ time_days,          # response ~ predictor
+  fct       = LL.3(),                   # model function (try LL.3(), LL.4(), LL.5())
+  data      = m,                        # dataset
+  curveid   = treatment_id,             # grouping variable for curves
+  separate  = TRUE,                     # fit each treatment independently
+  type      = "continuous"              # type of data
 )
 
 # If no errors, proceed to summary
@@ -131,27 +132,73 @@ cat("\nDose-response model fit plot saved to figures directory.\n")
 # Fit alternative models for comparison
 model_LL4 <- drm(
   obs_germination ~ time_days,
-  fct     = LL.4(),
-  data    = m,
-  curveid = treatment_id,
-  separate = TRUE
+  fct       = LL.4(),
+  data      = m,
+  curveid   = treatment_id,
+  separate  = TRUE,
+  type      = "continuous"
 )
 model_W1 <- drm(
   obs_germination ~ time_days,
-  fct     = W1.4(),
-  data    = m,
-  curveid = treatment_id,
-  separate = TRUE
+  fct       = W1.4(),
+  data      = m,
+  curveid   = treatment_id,
+  separate  = TRUE,
+  type      = "continuous"
 )
 model_W2 <- drm(
   obs_germination ~ time_days,
-  fct     = W2.4(),
-  data    = m,
-  curveid = treatment_id,
-  separate = TRUE
+  fct       = W2.4(),
+  data      = m,
+  curveid   = treatment_id,
+  separate  = TRUE,
+  type      = "continuous"
 )
 
 # --- Compare models using AIC ---
-model_comparison <- AIC(model_LL, model_LL4, model_W1, model_W2)
+# Extract AIC values for each treatment and model
+aic_df_LL <- data.frame(
+  Treatment = names(model_LL$objList),
+  AIC_LL    = sapply(model_LL$objList, function(f) tryCatch(AIC(f), error=function(e) NA_real_)),
+  row.names = NULL
+)
 
+aic_df_W1 <- data.frame(
+  Treatment = names(model_W1$objList),
+  AIC_W1    = sapply(model_W1$objList, function(f) tryCatch(AIC(f), error=function(e) NA_real_)),
+  row.names = NULL
+)
 
+aic_df_W2 <- data.frame(
+  Treatment = names(model_W2$objList),
+  AIC_W2    = sapply(model_W2$objList, function(f) tryCatch(AIC(f), error=function(e) NA_real_)),
+  row.names = NULL
+)
+
+# Merge and pick best per treatment
+aic_all <- Reduce(function(x, y) merge(x, y, by = "Treatment", all = TRUE),
+                  list(aic_df_LL, aic_df_W1, aic_df_W2))
+
+# Winner column
+cols <- c("AIC_LL", "AIC_W1", "AIC_W2")
+aic_all$Best <- cols[max.col(-as.matrix(aic_all[ , cols, drop = FALSE]))]
+
+print(aic_all)
+
+# Choose the lowest AIC model for further analysis
+    # Overall best model across treatments = lowest total AIC
+totals <- colSums(aic_all[, cols], na.rm = TRUE)
+cat("\n\nOverall best model by total AIC:", overall_best, "\n")   
+print(totals)
+overall_best <- names(which.min(totals))
+
+# --- Define the Best Model ---
+best_model <- switch(overall_best,
+                     AIC_LL = model_LL,
+                     AIC_W1 = model_W1,
+                     AIC_W2 = model_W2
+)
+
+cat("\nUsing the best model for further analysis:", overall_best, "\n")
+
+print(best_model)
