@@ -234,10 +234,21 @@ overall_best <- names(which.min(totals))
 # Print the overall best model after it is defined
 cat("\n\nOverall best model by total AIC:\n", overall_best, "\n")
 
+# Now we need to define best_model based on overall_best
+  # To do this, we should start by making a list of the models
+models_list <- list(
+  LL = model_LL,
+  W1 = model_W1,
+  W2 = model_W2
+)
+
+# Extract the best model based on overall_best
+best_model <- models_list[[gsub("AIC_", "", overall_best)]]
+
 # --- Treatment Comparisons ---
 # Using the best model (e.g., model_LL) for treatment comparisons
 plot(
-    overall_best, 
+    best_model, 
     log     = "", 
     col     = 1:6, 
     lwd     = 2, 
@@ -267,7 +278,7 @@ cat("\nBest dose-response model fit plot saved to figures directory.\n")
 
 # Using the main solution
 qplotDrc(
-  overall_best,
+  best_model,
   type   = "confidence",
   col    = TRUE,
   xtrans = "identity",
@@ -286,9 +297,9 @@ ggsave(file.path(fig_dir, paste0("qplot_best_ci_", overall_best, ".png")),
 # --- Effective Dose (ED50) Estimation ---
 # Estimate ED50 for each treatment using the best model
 ed50_values <- data.frame(
-  Treatment = names(overall_best$objList),
+  Treatment = names(best_model$objList),
   ED50 = vapply(
-    overall_best$objList,
+    best_model$objList,
     function(f) as.numeric(ED(f, 50, display = FALSE)[1]),  # pull the scalar
     numeric(1)
   )
@@ -301,9 +312,3 @@ write.csv(
     file = file.path("/Users/bruger/Desktop/Folders/KU/Master/year_2/blok_01/TCP/tcp_notes/tcp_project_files/R/data", "PE2_ed50_estimates.csv"), 
     row.names = FALSE
 )
-
-print(best_model)
-class(best_model)
-
-print(overall_best)
-class(overall_best)

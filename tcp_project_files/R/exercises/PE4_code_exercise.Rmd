@@ -1,0 +1,355 @@
+---
+title: "PE4_code_all_endpoints"
+author: "Heba+Valentine"
+date: "2025-08-01"
+output: word_document
+---
+
+This script yields summary statistics (automatically saved as a csv file in your directory), boxplots and barplots with compact letter display for statistically significant differences between treatments, for each endpoint measured. The graphs do not include the unit, and these must be added, along with proper titles.
+
+This script requires data as an xlsx file with the same column names. The directory must be specified by the user in chunk 5 (look for the #CLUES)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+If you are working on R on your own laptop (not on ERDA), you need to install the following packages (required only once)
+```{r}
+# install.packages("readxl")
+# install.packages("plyr")
+# install.packages("ggplot2")
+# install.packages("multcompView")
+```
+
+Load the packages (required everytime you start R)
+```{r}
+library("readxl")
+library("plyr")
+library("ggplot2")
+library("car") 
+library("multcompView")
+```
+
+#Import the data
+Run the following chunk (green arrow on the right). In the pop up window, choose the dataset to import (the excel sheet that you have formatted).
+```{r}
+file.choose() #after running this chunk, silence this line by placing a # at the very beginning like in the following line
+#file.choose()
+```
+
+Copy the directory (what the previous chunk returned) including the "" (e.g."/home/jovyan/work/TCP/PE4_data.xlsx") and paste it where indicated in the following chunk. Then, silence the previous chunk.
+
+```{r}
+DS<- read_xlsx(PASTE HERE) #CLUE
+head(DS) #this shows the first 6 rows of the dataset
+tail(DS) #this shows the lst 6 rows of the dataset
+```
+
+#Format the data
+we specify the grouping variables as factors and rename them for clarity (=what are we interested in comparing?)
+```{r}
+DS$N_Fertilization<- as.factor(ifelse(DS$N_Fertilization == "N-", "No_Nitro", "Nitro"))
+DS$Watering<- as.factor(ifelse(DS$Watering == "W-", "No_W", "Watering"))
+
+DS$group <- as.factor(paste0(DS$N_Fertilization,":",DS$Watering))
+
+head(DS)
+tail(DS)
+```
+
+Calculating the summary statistics (mean and standard deviation) for all the variables
+```{r}
+summary_stats <- ddply(DS, .(N_Fertilization, Watering, group), summarise,
+  mean_gs = mean(gs, na.rm = TRUE), sd_gs = sd(gs, na.rm = TRUE),
+  mean_Tr = mean(Tr, na.rm = TRUE), sd_Tr = sd(Tr, na.rm = TRUE),
+  mean_Psil = mean(Psil, na.rm = TRUE), sd_Psil = sd(Psil, na.rm = TRUE),
+  mean_An = mean(An, na.rm = TRUE), sd_An = sd(An, na.rm = TRUE),
+  mean_LA = mean(LA, na.rm = TRUE), sd_LA = sd(LA, na.rm = TRUE),
+  mean_Chl = mean(Chl, na.rm = TRUE), sd_Chl = sd(Chl, na.rm = TRUE)
+)
+
+write.csv(summary_stats, "summary_statistics_TCP.csv") #saves the results as a csv file in the working directory (which you can open in excel/R to include in your report)
+```
+
+We use an ANOVA/F-test to test which groups are statistically different from one another, which we then represent in the graph using compact letter display. Before conducting this analysis, it is good practice to check if the assumptions of the test are satisfied.
+
+You are NOT required to check assumptions in this exercise.
+
+#graphs
+##Stomatal conductance (gs)
+###boxplot
+```{r}
+ggplot(DS, aes(x=N_Fertilization, y=gs, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "gs",
+    x = "Nitrogen Fertilization", 
+    y = "gs (unit)",         
+    fill = "Watering Treatment")+
+    scale_fill_brewer(palette="Paired")
+```
+
+###create compact letter display (cld) for significance
+
+```{r}
+anova_Maize_gs <- aov(gs ~  N_Fertilization* Watering, data = DS) #ANOVA (=is there a statistically significant difference between the groups?)
+
+tukey_cld <- multcompLetters4(anova_Maize_gs, TukeyHSD(anova_Maize_gs)) #Tukey (=what groups are different?)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`) #save these differences as letters
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+cld_df <- subset(cld_df, select = c("Letters", "group"))
+
+
+summary_stats_gs<- merge(summary_stats, cld_df, by = "group") #add the letters to the summary statistics dataset
+```
+
+
+###barplot with cld
+```{r}
+ggplot(summary_stats_gs, aes(x=N_Fertilization, y=mean_gs, fill=Watering)) + #choose the dataset and values to plot
+  geom_bar(stat="identity", position=position_dodge()) + #bars of the bar plot
+  geom_errorbar(aes(ymin=mean_gs-sd_gs, ymax=mean_gs+sd_gs), width=.2, #error bars
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_gs + sd_gs), #cld
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "gs", #titles
+    x = "Nitrogen Fertilization", 
+    y = "gs (unit)",         
+    fill = "Watering Treatment")+
+  scale_fill_brewer(palette="Paired") #aesthetic
+
+```
+
+##Leaf area (LA)
+
+###boxplot
+```{r}
+ggplot(DS, aes(x=N_Fertilization, y=LA, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "Leaf area",
+    x = "Nitrogen Fertilization", 
+    y = "LA (unit)",         
+    fill = "Watering Treatment")+
+    scale_fill_brewer(palette="Paired")
+```
+
+###create compact letter display (cld) for significance
+
+for Maize
+```{r}
+anova_Maize_LA <- aov(LA ~  N_Fertilization* Watering, data = DS) #ANOVA (=is there a statistically significant difference between the groups?)
+
+tukey_cld <- multcompLetters4(anova_Maize_LA, TukeyHSD(anova_Maize_LA)) #Tukey (=what groups are different?)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`) #save these differences as letters
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+cld_df <- subset(cld_df, select = c("Letters", "group"))
+
+
+summary_stats_LA<- merge(summary_stats, cld_df, by = "group") #add the letters to the summary statistics dataset
+```
+
+###barplot with cld
+```{r}
+ggplot(summary_stats_LA, aes(x=N_Fertilization, y=mean_LA, fill=Watering)) + #choose the dataset and values to plot
+  geom_bar(stat="identity", position=position_dodge()) + #bars of the bar plot
+  geom_errorbar(aes(ymin=mean_LA-sd_LA, ymax=mean_LA+sd_LA), width=.2, #error bars
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_LA + sd_LA), #cld
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "Leaf area", #titles
+    x = "Nitrogen Fertilization", 
+    y = "Leaf Area (unit)",         
+    fill = "Watering Treatment")+
+  scale_fill_brewer(palette="Paired") #aesthetic
+
+```
+
+
+##Tr
+###boxplot
+```{r}
+ggplot(DS, aes(x=N_Fertilization, y=Tr, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "Tr",
+    x = "Nitrogen Fertilization", 
+    y = "Tr (unit)",         
+    fill = "Watering Treatment")+
+    scale_fill_brewer(palette="Paired")
+```
+
+###create compact letter display (cld) for significance
+
+for Maize
+```{r}
+anova_Maize_Tr <- aov(Tr ~  N_Fertilization* Watering, data = DS) #ANOVA (=is there a statistically significant difference between the groups?)
+
+tukey_cld <- multcompLetters4(anova_Maize_Tr, TukeyHSD(anova_Maize_Tr)) #Tukey (=what groups are different?)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`) #save these differences as letters
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+cld_df <- subset(cld_df, select = c("Letters", "group"))
+
+
+summary_stats_Tr<- merge(summary_stats, cld_df, by = "group") #add the letters to the summary statistics dataset
+```
+
+###barplot with cld
+```{r}
+ggplot(summary_stats_Tr, aes(x=N_Fertilization, y=mean_Tr, fill=Watering)) + #choose the dataset and values to plot
+  geom_bar(stat="identity", position=position_dodge()) + #bars of the bar plot
+  geom_errorbar(aes(ymin=mean_Tr-sd_Tr, ymax=mean_Tr+sd_Tr), width=.2, #error bars
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_Tr + sd_Tr), #cld
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "Tr", #titles
+    x = "Nitrogen Fertilization", 
+    y = "Tr (unit)",         
+    fill = "Watering Treatment")+
+  scale_fill_brewer(palette="Paired") #aesthetic
+
+```
+
+##Psil
+###boxplot
+```{r}
+ggplot(DS, aes(x=N_Fertilization, y=Psil, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "Psil",
+    x = "Nitrogen Fertilization", 
+    y = "Psil (unit)",         
+    fill = "Watering Treatment")+
+    scale_fill_brewer(palette="Paired")
+```
+
+###create compact letter display (cld) for significance
+
+for Maize
+```{r}
+anova_Maize_Psil <- aov(Psil ~  N_Fertilization* Watering, data =  DS) #ANOVA (=is there a statistically significant difference between the groups?)
+
+tukey_cld <- multcompLetters4(anova_Maize_Psil, TukeyHSD(anova_Maize_Psil)) #Tukey (=what groups are different?)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`) #save these differences as letters
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+cld_df <- subset(cld_df, select = c("Letters", "group"))
+
+
+summary_stats_Psil<- merge(summary_stats, cld_df, by = "group") #add the letters to the summary statistics dataset
+```
+
+
+###barplot with cld
+```{r}
+ggplot(summary_stats_Psil, aes(x=N_Fertilization, y=mean_Psil, fill=Watering)) + #choose the dataset and values to plot
+  geom_bar(stat="identity", position=position_dodge()) + #bars of the bar plot
+  geom_errorbar(aes(ymin=mean_Psil-sd_Psil, ymax=mean_Psil+sd_Psil), width=.2, #error bars
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_Psil + sd_Psil), #cld
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "Psil", #titles
+    x = "Nitrogen Fertilization", 
+    y = "Psil (unit)",         
+    fill = "Watering Treatment")+
+  scale_fill_brewer(palette="Paired") #aesthetic
+
+```
+
+##An
+###boxplot
+```{r}
+ggplot(DS, aes(x=N_Fertilization, y=An, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "An",
+    x = "Nitrogen Fertilization", 
+    y = "An (unit)",         
+    fill = "Watering Treatment")+
+    scale_fill_brewer(palette="Paired")
+```
+
+###create compact letter display (cld) for significance
+
+for Maize
+```{r}
+anova_Maize_An <- aov(An ~  N_Fertilization* Watering, data = DS) #ANOVA (=is there a statistically significant difference between the groups?)
+
+tukey_cld <- multcompLetters4(anova_Maize_An, TukeyHSD(anova_Maize_An)) #Tukey (=what groups are different?)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`) #save these differences as letters
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+cld_df <- subset(cld_df, select = c("Letters", "group"))
+
+
+summary_stats_An<- merge(summary_stats, cld_df, by = "group") #add the letters to the summary statistics dataset
+```
+
+###barplot with cld
+```{r}
+ggplot(summary_stats_An, aes(x=N_Fertilization, y=mean_An, fill=Watering)) + #choose the dataset and values to plot
+  geom_bar(stat="identity", position=position_dodge()) + #bars of the bar plot
+  geom_errorbar(aes(ymin=mean_An-sd_An, ymax=mean_An+sd_An), width=.2, #error bars
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_An + sd_An), #cld
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "An", #titles
+    x = "Nitrogen Fertilization", 
+    y = "An (unit)",         
+    fill = "Watering Treatment")+
+  scale_fill_brewer(palette="Paired") #aesthetic
+
+```
+
+##Chl
+###boxplot
+```{r}
+ggplot(DS, aes(x=N_Fertilization, y=Chl, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "Chl",
+    x = "Nitrogen Fertilization", 
+    y = "Chl (unit)",         
+    fill = "Watering Treatment")+
+    scale_fill_brewer(palette="Paired")
+```
+
+###create compact letter display (cld) for significance
+
+
+for Maize
+```{r}
+anova_Maize_Chl <- aov(Chl ~  N_Fertilization* Watering, data = DS) #ANOVA (=is there a statistically significant difference between the groups?)
+
+tukey_cld <- multcompLetters4(anova_Maize_Chl, TukeyHSD(anova_Maize_Chl)) #Tukey (=what groups are different?)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`) #save these differences as letters
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+cld_df <- subset(cld_df, select = c("Letters", "group"))
+
+
+summary_stats_Chl<- merge(summary_stats, cld_df, by = "group") #add the letters to the summary statistics dataset
+```
+
+###barplot with cld
+```{r}
+ggplot(summary_stats_Chl, aes(x=N_Fertilization, y=mean_Chl, fill=Watering)) + #choose the dataset and values to plot
+  geom_bar(stat="identity", position=position_dodge()) + #bars of the bar plot
+  geom_errorbar(aes(ymin=mean_Chl-sd_Chl, ymax=mean_Chl+sd_Chl), width=.2, #error bars
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_Chl + sd_Chl), #cld
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "Chl", #titles
+    x = "Nitrogen Fertilization", 
+    y = "Chl (unit)",         
+    fill = "Watering Treatment")+
+  scale_fill_brewer(palette="Paired") #aesthetic
+
+```
+
+
+#knit
+--> to save the code+output, KNIT the document (using the knit button on the drop down menu)
