@@ -1,0 +1,269 @@
+---
+title: "PE4_code"
+author: "Heba+Valentine"
+date: "2024-08-27"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# install.packages("readxl")
+# install.packages("plyr")
+# install.packages("ggplot2")
+# install.packages("multcompView")
+```
+
+```{r}
+library("readxl")
+library("plyr")
+library("ggplot2")
+library("car") # for variance homogeneity test
+library("multcompView")
+```
+
+#Import the data
+
+Run the following chunk (green arrow on the right). In the pop up window, choose the dataset to import.
+```{r}
+file.choose() #after running this chunk, silence this line by placing a # at the very beginning like in the following line
+#file.choose()
+```
+
+Copy the directory (what the previous chunk returned) including the "" (e.g."/home/jovyan/work/TCP/PE4_data.xlsx") and paste it where indicated in the following chunk. Then, silence the previous chunk.
+
+```{r}
+DS<- read_xlsx(PASTE HERE) #CLUE
+head(DS)
+tail(DS)
+```
+
+
+```{r}
+#we specify the grouping variables as factors and rename them for clarity
+DS$N_Fertilization<- as.factor(ifelse(DS$N_Fertilization == "N-", "No_Nitro", "Nitro"))
+DS$Watering<- as.factor(ifelse(DS$Watering == "W-", "No_W", "Watering"))
+
+DS$group <- as.factor(paste0(DS$N_Fertilization,":",DS$Watering))
+
+head(DS)
+tail(DS)
+```
+
+
+```{r}
+#in this example, we focus only on quinoa for which we create a subset
+DS_Quinoa <- subset(DS,DS$Species =="Quinoa")
+```
+
+##boxplot
+```{r}
+ggplot(DS_Quinoa, aes(x=N_Fertilization, y=gs, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "Quinoa (gs)",
+    x = "Nitrogen Fertilization", 
+    y = "gs (mol /m² s)",         
+    fill = "Watering Treatment")+
+  theme_classic()+ scale_fill_brewer(palette="Paired")
+```
+
+Calculating the summary statistics (mean and standard deviation) for all the variables for Quinoa
+```{r}
+summary_stats_Quinoa <- ddply(DS_Quinoa, .(N_Fertilization, Watering, group), summarise,
+  mean_gs = mean(gs, na.rm = TRUE), sd_gs = sd(gs, na.rm = TRUE),
+  mean_Tr = mean(Tr, na.rm = TRUE), sd_Tr = sd(Tr, na.rm = TRUE),
+  mean_SPAD = mean(SPAD, na.rm = TRUE), sd_SPAD = sd(SPAD, na.rm = TRUE),
+  mean_Yl = mean(Yl, na.rm = TRUE), sd_Yl = sd(Yl, na.rm = TRUE),
+  mean_LA = mean(LA, na.rm = TRUE), sd_LA = sd(LA, na.rm = TRUE),
+  mean_LDM = mean(LDM, na.rm = TRUE), sd_LDM = sd(LDM, na.rm = TRUE),
+  mean_SLA = mean(SLA, na.rm = TRUE), sd_SLA = sd(SLA, na.rm = TRUE),
+  mean_TDM = mean(TDM, na.rm = TRUE), sd_TDM = sd(TDM, na.rm = TRUE)
+)
+
+summary_stats_Quinoa
+```
+
+
+Analyzing all variables for the Quinoa data set.
+
+#Stomatal conductance
+##barplot
+```{r}
+ggplot(summary_stats_Quinoa, aes(x=N_Fertilization, y=mean_gs, fill=Watering)) + 
+  geom_bar(stat="identity", position=position_dodge()) +
+  geom_errorbar(aes(ymin=mean_gs-sd_gs, ymax=mean_gs+sd_gs), width=.2,
+                position=position_dodge(.9)) +
+  labs(title = "Quinoa (gs)",
+    x = "Nitrogen Fertilization", 
+    y = "gs (mol /m² s)",         
+    fill = "Watering Treatment")+
+  theme_classic()+ scale_fill_brewer(palette="Paired")
+```
+
+
+
+##Conducting analysis of variance (ANOVA/F-test)
+
+First we need to check the assumptions of the test are satisfied
+
+The assumptions are 
+
+1.Independent samples (The observations in different groups should be 
+  independent)
+2.Random sampling (Observations within each group have been sampled randomly 
+  and are independent of each other)
+3.Normality (The data within each group should be normally distributed)
+4.Homoscedasticity or Homogeneity of variance: (The variance of the data within
+  each group should be equal)
+
+```{r}
+anova_Quinoa_gs <- aov(gs ~ N_Fertilization* Watering, data = DS_Quinoa)
+summary(anova_Quinoa_gs)
+TukeyHSD(anova_Quinoa_gs)
+```
+
+
+###Normality
+
+To check that the variable are normally distributed we conduct a 
+  Shapiro-Wilk test 
+  
+Null hypothesis: The data follow normal distribution 
+Alternative hypothesis: The data do not follow normal distribution.
+
+```{r}
+plot(anova_Quinoa_gs, which = 2) #graphical method
+shapiro.test(residuals(anova_Quinoa_gs)) #numerical method
+```
+
+Since the P-value of the test > 0.05 then we do not reject the null hypothesis 
+of normality.
+then the normality assumption is satisfied 
+
+###Homoscedasticity
+To check the Homoscedasticity we can use levene Test
+Null hypothesis: Homoscedasticity (Homogeneity of variance) (The population 
+                  variance of the groups are equal)
+Alternative hypothesis: at least one group has different variance.
+
+```{r}
+plot(anova_Quinoa_gs, which = 1) #graphical method
+leveneTest(residuals(anova_Quinoa_gs) ~ DS_Quinoa$N_Fertilization * DS_Quinoa$Watering,center= mean) #numerical method
+```
+
+For the data centered around the mean:
+Since the P-value of the test < 0.05 then we reject the null hypothesis of Homogeneity of variance.
+then the Homoscedasticity assumption is not satisfied.
+
+
+as we can see the heteroscedasticity assumption is not satisfied so we need to try transformation 
+
+--> suggested transformations are (log(y), sqrt(y), 1/y , y^2,....etc)
+
+##checking log transformation
+```{r}
+anova_Quinoa_log_gs <- aov(log(gs) ~ N_Fertilization* Watering, data = DS_Quinoa)
+summary(anova_Quinoa_log_gs)
+TukeyHSD(anova_Quinoa_log_gs)
+
+# Check Normality
+plot( anova_Quinoa_log_gs, which = 2)
+shapiro.test(residuals(anova_Quinoa_log_gs))
+
+# Check Homogeneity of Variance
+plot(anova_Quinoa_log_gs, which = 1)
+leveneTest(residuals(anova_Quinoa_log_gs) ~ DS_Quinoa$N_Fertilization * DS_Quinoa$Watering,center = mean)
+```
+
+##using the results depending on log (gs)
+```{r}
+tukey_cld <- multcompLetters4(anova_Quinoa_log_gs, TukeyHSD(anova_Quinoa_log_gs))
+print(tukey_cld)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`)
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+
+summary_stats<- merge(summary_stats_Quinoa, cld_df, by = "group")
+```
+
+
+```{r}
+ggplot(summary_stats, aes(x=N_Fertilization, y=mean_gs, fill=Watering)) +       #ggplot(summary_stats of the dataset, aes(x=grouping variable 1, y=mean of variable, fill (color)= grouping variable 2 ))
+  geom_bar(stat="identity", position=position_dodge()) +                        #make it a bar plot
+  geom_errorbar(aes(ymin=mean_gs-sd_gs, ymax=mean_gs+sd_gs), width=.2,          #add error bar using the standard deviation of the variable
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_gs + sd_gs),                          #add cld
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "Quinoa (gs)",                                                   #add axis titles
+    x = "Nitrogen Fertilization", 
+    y = "gs (mol /m² s)",         
+    fill = "Watering Treatment")+
+  theme_classic()+                                                              #choose theme (aesthetic)
+  scale_fill_brewer(palette="Paired")                                           #choose color palette for the grouping variable 2 (fill/color)
+```
+
+--> to save the code+output (as a word file or a PDF), KNIT the document (using the knit button on the drop down menu)
+
+
+
+
+#Leaf area
+ Another example, where the assumptions were satisfied and no transformation was required
+ 
+ boxplot for Quinoa LA
+```{r}
+ggplot(DS_Quinoa, aes(x=N_Fertilization, y=LA, fill=Watering)) + 
+  geom_boxplot() +
+  labs(title = "Quinoa (LA)",
+    x = "Nitrogen Fertilization", 
+    y = "LA",         
+    fill = "Watering Treatment")+
+  theme_classic()+ scale_fill_brewer(palette="Paired")
+```
+
+anova, checking assumptions
+```{r}
+anova_Quinoa_LA <- aov(LA ~ N_Fertilization* Watering, data = DS_Quinoa)
+summary(anova_Quinoa_LA)
+TukeyHSD(anova_Quinoa_LA)
+# Check Normality
+plot( anova_Quinoa_LA, which = 2)
+shapiro.test(residuals(anova_Quinoa_LA))
+
+# Check Homogeneity of Variance
+plot( anova_Quinoa_log_gs, which = 1)
+leveneTest(residuals(anova_Quinoa_LA) ~ DS_Quinoa$N_Fertilization * DS_Quinoa$Watering,center = mean)
+```
+
+create compact letter display (cld) for significance
+```{r}
+tukey_cld <- multcompLetters4(anova_Quinoa_LA, TukeyHSD(anova_Quinoa_LA))
+print(tukey_cld)
+
+cld_df <- as.data.frame.list(tukey_cld$`N_Fertilization:Watering`)
+cld_df$group <- rownames(cld_df)
+rownames(cld_df) <- NULL
+
+summary_stats<- merge(summary_stats_Quinoa, cld_df, by = "group")
+```
+
+barplot with cld
+```{r}
+ggplot(summary_stats, aes(x=N_Fertilization, y=mean_LA, fill=Watering)) + 
+  geom_bar(stat="identity", position=position_dodge()) +
+  geom_errorbar(aes(ymin=mean_LA-sd_LA, ymax=mean_LA+sd_LA), width=.2,
+                position=position_dodge(.9)) +
+  geom_text(aes(label = Letters, y = mean_LA + sd_LA),
+            position = position_dodge(width = 0.9), size = 5, vjust = -0.5) +
+  labs(title = "Quinoa (LA)",
+    x = "Nitrogen Fertilization", 
+    y = "Leaf Area",         
+    fill = "Watering Treatment")+
+  theme_classic()+ scale_fill_brewer(palette="Paired")
+```
+
+
+--> to save the code+output, KNIT the document (using the knit button on the drop down menu)

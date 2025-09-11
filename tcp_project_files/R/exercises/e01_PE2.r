@@ -118,7 +118,7 @@ model_LL <- drm(
   data      = m,                        # dataset
   curveid   = treatment_id,             # grouping variable for curves
   separate  = TRUE,                     # fit each treatment independently
-  type      = "continuous"              # type of data
+  type      = "continuous"              # type of data --- This should be an "event" instead of continous
 )
 
 # If no errors, proceed to summary
@@ -221,22 +221,23 @@ aic_all$Best <- cols[max.col(-as.matrix(aic_all[ , cols, drop = FALSE]))]
 print(aic_all)
 
 # Choose the lowest AIC model for further analysis
-    # Overall best model across treatments = lowest total AIC
+# Overall best model across treatments = lowest total AIC
 totals <- colSums(
             aic_all[, cols], 
             na.rm = TRUE
 )
-cat("\n\nOverall best model by total AIC:", 
-overall_best, "\n")   
 print(totals)
+
+# Define overall_best
 overall_best <- names(which.min(totals))
 
+# Print the overall best model after it is defined
 cat("\n\nOverall best model by total AIC:\n", overall_best, "\n")
 
 # --- Treatment Comparisons ---
 # Using the best model (e.g., model_LL) for treatment comparisons
 plot(
-    best_model, 
+    overall_best, 
     log     = "", 
     col     = 1:6, 
     lwd     = 2, 
@@ -266,7 +267,7 @@ cat("\nBest dose-response model fit plot saved to figures directory.\n")
 
 # Using the main solution
 qplotDrc(
-  best_model,
+  overall_best,
   type   = "confidence",
   col    = TRUE,
   xtrans = "identity",
@@ -285,9 +286,9 @@ ggsave(file.path(fig_dir, paste0("qplot_best_ci_", overall_best, ".png")),
 # --- Effective Dose (ED50) Estimation ---
 # Estimate ED50 for each treatment using the best model
 ed50_values <- data.frame(
-  Treatment = names(best_model$objList),
+  Treatment = names(overall_best$objList),
   ED50 = vapply(
-    best_model$objList,
+    overall_best$objList,
     function(f) as.numeric(ED(f, 50, display = FALSE)[1]),  # pull the scalar
     numeric(1)
   )
@@ -301,3 +302,8 @@ write.csv(
     row.names = FALSE
 )
 
+print(best_model)
+class(best_model)
+
+print(overall_best)
+class(overall_best)
