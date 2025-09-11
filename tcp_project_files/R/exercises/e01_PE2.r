@@ -113,12 +113,12 @@ m$treatment_id <- as.factor(m$treatment_id)
 
 # Fit the model
 model_LL <- drm(
-  obs_germination ~ time_days,          # response ~ predictor
+  cbind(obs_germination, 100 - obs_germination) ~ time_days,          # response ~ predictor
   fct       = LL.3(),                   # model function (try LL.3(), LL.4(), LL.5())
   data      = m,                        # dataset
   curveid   = treatment_id,             # grouping variable for curves
   separate  = TRUE,                     # fit each treatment independently
-  type      = "continuous"              # type of data --- This should be an "event" instead of continous
+  type      = "event"              # type of data --- This should be an "event" instead of continous
 )
 
 # If no errors, proceed to summary
