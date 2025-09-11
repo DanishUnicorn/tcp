@@ -3,7 +3,7 @@ cat("Author: Lucas Daniel Paz Zuleta, TZS159\n")
 cat("Date:", format(Sys.Date(), "%d-%m-%Y"), "\n\n")
 
 # --- Paths ---
-data_path <- file.path("/Users/bruger/Desktop/Folders/KU/Master/year_2/blok_01/TCP/tcp_notes/tcp_project_files/R/data/PE2_germination_data_exercise.csv") # Update the path to the correct file in your data folder
+data_path <- file.path("/Users/bruger/Desktop/Folders/KU/Master/year_2/blok_01/TCP/tcp_notes/tcp_project_files/R/data/PE2/PE2_germination_data_exercise.csv") # Update the path to the correct file in your data folder
 fig_dir   <- file.path("/Users/bruger/Desktop/Folders/KU/Master/year_2/blok_01/TCP/tcp_notes/tcp_project_files/R/figures/PE2") # Leave this as is, unless you want to change the figure directory
 
 # Check if the figures directory exists, create it if not
