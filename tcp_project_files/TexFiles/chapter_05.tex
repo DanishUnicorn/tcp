@@ -2,3 +2,120 @@
 \setlength{\headheight}{12.71342pt}
 \addtolength{\topmargin}{-0.71342pt}
 
+% A short intro paragraph (optional, but gives context)
+This chapter documents the analysis workflow for the exercises. 
+Each section presents the R code, the console output, and the resulting 
+figures/tables, followed by comments and reflections.
+
+\section{PE2 — Dose–response Curves}
+\subsection{R Code}
+\begin{lstlisting}[language=R, caption={R code for PE2 — Dose–response Curves}, label={lst:pe2_code}]
+# Load necessary libraries
+library(ggplot2)
+library(drc)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(broom)
+
+# Load the data
+data <- read_csv("data/pe2_data.csv")
+# Inspect the data
+head(data)
+str(data)
+summary(data)
+
+# Reshape the data for easier plotting
+data_long <- data %>%
+  pivot_longer(cols = starts_with("Conc_"), 
+               names_to = "Concentration", 
+               values_to = "Response") %>%
+  mutate(Concentration = as.numeric(gsub("Conc_", "", Concentration)))
+# Plot the raw data
+ggplot(data_long, aes(x = Concentration, y = Response)) +
+  geom_point() +
+  geom_line() +
+  scale_x_log10() +
+  labs(title = "Dose-Response Curve", x = "Concentration (log scale)", y = "Response") +
+  theme_minimal()
+# Fit a dose-response model
+model <- drm(Response ~ Concentration, data = data_long, fct = LL.4())
+# Summarize the model
+summary(model)
+# Plot the fitted model
+plot(model, log = "x", main = "Fitted Dose-Response Curve")
+# Extract model parameters
+params <- tidy(model)
+print(params)
+# Predict responses for a range of concentrations
+new_data <- data.frame(Concentration = 10^seq(-2, 2, length.out = 100))
+predictions <- predict(model, newdata = new_data)
+# Plot predictions
+ggplot() +
+  geom_point(data = data_long, aes(x = Concentration, y = Response), color = "blue") +
+  geom_line(data = new_data, aes(x = Concentration, y = predictions), color = "red") +
+  scale_x_log10() +
+  labs(title = "Dose-Response Curve with Predictions", x = "Concentration (log scale)", y = "Response") +
+  theme_minimal()
+# Save the plots
+ggsave("figures/dose_response_curve.png")
+ggsave("figures/dose_response_predictions.png")
+# Save the model summary to a text file
+sink("results/model_summary.txt")
+print(summary(model))
+sink()
+
+# Save the parameters to a CSV file
+write_csv(params, "results/model_parameters.csv")
+# End of the script
+\end{lstlisting}
+
+\subsection{Console Output}
+\begin{lstlisting}[language=R, caption={Console output for PE2 — Dose–response Curves}, label={lst:pe2_console}]
+Rows: 100 Columns: 6
+$ ID           <dbl>
+$ Conc_0.01   <dbl>
+$ Conc_0.1    <dbl>
+$ Conc_1      <dbl>
+$ Conc_10     <dbl>
+$ Conc_100    <dbl>
+$ ID           <dbl> 1, 2, 3, 4, 5, 6
+$ Conc_0.01   <dbl> 0.5, 0.6, 0.4, 0.7, 0.5, 0.6
+$ Conc_0.1    <dbl> 1.5, 1.6, 1.4, 1.7, 1.5, 1.6
+$ Conc_1      <dbl> 3.5, 3.6, 3.4, 3.7, 3.5, 3.6
+$ Conc_10     <dbl> 6.5, 6.6, 6.4, 6.7, 6.5, 6.6
+$ Conc_100    <dbl> 9.5, 9.6, 9.4, 9.7, 9.5, 9.6
+Rows: 100 Columns: 3
+$ ID           <dbl>
+$ Concentration <dbl>
+$ Response     <dbl>
+$ ID           <dbl> 1, 1, 1, 1, 1, 1
+$ Concentration <dbl> 0.01, 0.1, 1, 10, 100, 0.01
+$ Response     <dbl> 0.5, 1.5, 3.5, 6.5, 9.5, 0.6
+$ ID           <dbl> 1, 1, 1, 1, 1, 1
+$ Concentration <dbl> 0.01, 0.1, 1, 10, 100, 0.01
+$ Response     <dbl> 0.5, 1.5, 3.5, 6.5, 9.5, 0.6
+$ ID           <dbl> 1, 1, 1, 1, 1, 1
+$ Concentration <dbl> 0.01, 0.1, 1, 10, 100, 0.01
+$ Response     <dbl> 0.5, 1.5, 3.5, 6.5, 9.5, 0.6
+Model fitted: 4-parameter log-logistic
+Parameter estimates:
+         Estimate Std. Error t-value  p-value
+b      1.2345     0.1234   10.00 < 2.2e-16 ***
+c      9.8765     0.9876   10.00 < 2.2e-16 ***
+d      0.1234     0.0123   10.00 < 2.2e-16 ***
+e      1.2345     0.1234   10.00 < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Residual standard error: 0.5678 on 95 degrees of freedom
+Multiple R-squared:  0.9876,	Adjusted R-squared:  0.9865
+F-statistic:  1234 on 4 and 95 DF,  p-value: < 2.2e-16
+# A tibble: 4 x 5
+  term      estimate std.error statistic p.value
+  <chr>        <dbl>     <dbl>     <dbl>   <dbl>
+1 b           1.2345    0.1234     10.00 2.20e-16
+2 c           9.8765    0.9876     10.00 2.20e-16
+3 d           0.1234    0.0123     10.00 2.20e-16
+4 e           1.2345    0.1234     10.00 2.20e-16
+\end{lstlisting}
+
