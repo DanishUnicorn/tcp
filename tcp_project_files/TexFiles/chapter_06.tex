@@ -149,45 +149,51 @@ In summary, while intercropping enhances biodiversity and ecological sustainabil
     \label{fig:tcp_q_05}
 \end{figure}
 
-1) Describe the curves.
-All three curves show cumulative germination over time. Curve a starts early and rises steeply, reflecting high vigour and uniform germination. Curve b begins later and increases more slowly but eventually reaches a similar final level, indicating viable seeds with lower vigour or mild dormancy. Curve c rises slowly and never reaches full germination, suggesting aged or partially dormant seeds with reduced viability.
-
-2) Are they as expected for an ordinary germination test?
-Yes. Under controlled ISTA test conditions-stable temperature, light, and moisture-cumulative germination typically follows a sigmoidal pattern. Seeds germinate asynchronously due to individual physiological differences, and variation among lots mainly appears in onset time, rate, and total percentage.
-
-3) How to estimate the germination curve mathematically?
-The time-course data can be fitted to the cumulative log-logistic function:
-\[ F(t) = \frac {1}
-                {1 + \left( \frac{t}{t_{50}} \right)^{b}} \]
-
-where F(t) is the fraction germinated at time t. This model describes the sigmoidal rise and allows quantitative comparison among seed lots.
-
-4) Necessary parameters in the model.
-Key parameters include t50- the time required for 50 \% germination, representing the median rate - and the shape parameter b, which defines the steepness and synchrony of germination. The upper asymptote represents the maximum germination percentage.
-
-5) How to test whether seed lots a and b differ significantly?
-Fit the log-logistic model separately to each time series and compare estimated parameters (t50, b, maximum \%). Statistical differences can be tested via confidence-interval overlap or ANOVA on model parameters. A shorter t50 indicates faster germination and greater vigour.
-
-6) Why does seed lot c have another shape than a and b?
-Curve c shows a lower final germination and a flatter slope, reflecting heterogeneous or damaged seeds. This could arise from ageing, mechanical injury, or partial dormancy, all of which slow and reduce germination even under the same test conditions.
-
-7) If lots a and b are identical but a is from an ordinary Curve b could result from a seedling emergence test conducted in soil rather than a paper germination test. In soil, physical resistance, temperature fluctuation, and oxygen limitation delay and spread germination events, producing a slower, flatter curve even for the same seed lot.
-
-
 \begin{enumerate}
     \item \textbf{Describe the curves.}
-        \begin{enumerate}
-            \item this curve
-            \item this curve
-            \item this curve
-        \end{enumerate}
-    \item \textbf{The germination curves represent developments as expected for an ordinary germination test for the three seed lots?} 
-    \item \textbf{How can you estimate the germination curve based on count over time using a mathematical model.}
-    \item \textbf{Which parameters are necessary in the mathematical model?}
-    \item \textbf{How can you test whether the curves for seed lots a and b are statistically significantly different.}
-    \item \textbf{What could be the reason why the curve for seed lot c has another shape than seed lots a and b?}
-    \item \textbf{If seed lots a and b are actually identical, but curve a is a result of an ordinary germination test, what kind of test could then result in curve b.}
+
+    All three curves represent cumulative germination over time. Curve \textbf{a} starts early and rises steeply, indicating high vigour and uniform germination. Curve \textbf{b} begins later and increases more gradually but eventually reaches a similar final level, suggesting viable seeds with lower vigour or mild dormancy. Curve \textbf{c} rises slowly and never reaches full germination, reflecting aged or partially dormant seeds with reduced viability.
+
+    \vspace{0.5em}
+    \item \textbf{Are they as expected for an ordinary germination test?}
+
+    Yes. Under standard ISTA test conditions (stable temperature, light, and moisture), cumulative germination typically follows a sigmoidal pattern. Seeds germinate asynchronously due to individual physiological variation, and differences among lots mainly appear in onset time, germination rate, and final percentage.
+
+    \vspace{0.5em}
+    \item \textbf{How to estimate the germination curve mathematically?}
+
+    Germination-time data can be modelled using the cumulative log-logistic function:
+    \[
+    F(t) = \frac{1}{1 + \left(\frac{t}{t_{50}}\right)^{b}}
+    \]
+    where \(F(t)\) is the cumulative fraction germinated at time \(t\). This model captures the sigmoidal curve shape and allows quantitative comparison of germination dynamics among seed lots.
+
+    \vspace{0.5em}
+    \item \textbf{Necessary parameters in the model.}
+
+    The main parameters are:
+    \begin{itemize}
+        \item \(t_{50}\): Time required for 50\,\% germination, representing median germination rate and vigour.  
+        \item \(b\): Shape parameter defining curve steepness and synchrony of germination.  
+        \item Upper asymptote: Maximum germination percentage achieved by the lot.  
+    \end{itemize}
+
+    \vspace{0.5em}
+    \item \textbf{How to test whether seed lots a and b differ significantly?}
+
+    Fit the log-logistic model separately for each seed lot and compare parameter estimates (\(t_{50}\), \(b\), and maximum \%). Statistical significance can be assessed by confidence-interval overlap or ANOVA on model parameters. A lower \(t_{50}\) indicates faster germination and higher seed vigour.
+
+    \vspace{0.5em}
+    \item \textbf{Why does seed lot c have another shape than a and b?}
+
+    Curve \textbf{c} shows a lower final germination and flatter slope, typical of heterogeneous or damaged seed lots. Reduced performance may result from ageing, mechanical damage, or partial dormancy, all of which limit water uptake and delay germination even under optimal test conditions.
+
+    \vspace{0.5em}
+    \item \textbf{If lots a and b are identical but tested under different conditions, what could explain curve b?}
+
+    Curve \textbf{b} could represent results from a seedling emergence test in soil rather than a standard paper germination test. In soil, mechanical resistance, fluctuating temperature, and reduced oxygen slow germination and broaden the response curve, producing a delayed and flatter pattern even for identical seed material.
 \end{enumerate}
+
 
 %Intercropping is characterized as the practice of cultivating multiple crops together within the same plot, frequently associated with traditional farming systems or polyculture systems utilized by indigenous smallholder farmers in regions such as the Inter-Andean Valleys (IAV) and the Bolivian Altiplano. These traditional farming systems, such as chiru, ananta, and k'ata, are dynamic units that have historically enabled farmers to maintain a high agro-biodiversity. Examples include the cultivation of the root legume ahipa (Pachyrhizus ahipa) in polyculture systems alongside crops such as tomato, onion, fennel, arracacha, groundnut, cassava, white giant maize corn, and achoccha. Likewise, mauka (Mirabilis expansa) is frequently intercropped with maize, beans, yacón, and squash, and other Andean crops like oca, ulluco, and mashua are traditionally planted together.
 %The practice of intercropping provides several potential benefits, primarily centered on sustainability, resource optimization, and resilience. One major benefit is the integral role of legumes like ahipa in promoting a sustainable land-use system by acting as N2 -fixing crops, which allows them to be grown without N fertilizers. This feature, along with pest tolerance, reduces input requirements and lowers environmental impact and production costs. Furthermore, the combination of a tuberous root crop and a legume can offer the yield reliability of a tuberous root crop alongside the high sustainability of a legume. These systems allow farmers to obtain multiple outputs; for instance, dried hay from Pachyrhizus is used as fodder, provided reproductive pruning is implemented to avoid toxic rotenone. Certain crops within these agro-ecological systems also provide protection, as seen with mauka, which synthesizes ribosome-inactivating proteins that have an antimicrobial effect against root-rotting microorganisms and generally does not succumb to pests or diseases.
